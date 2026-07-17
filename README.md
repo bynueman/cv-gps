@@ -137,8 +137,10 @@ Transparent assets (`logo/*`, `kuicip-nobg`, `putriteko-nobg`) float on
 colored planes in the hero and family panels. `image: null` still falls
 back to the SVG placeholder packshots (`Packshot.tsx` /
 `ProductPackshot.tsx`), so unphotographed future SKUs degrade cleanly.
-Note: the Beras Kencur bottle photo is named `boto-beraskencur.png`
-(filename typo kept as-is; referenced verbatim in `content.ts`).
+All images are compressed WebP (max 1200 px long edge, originals were
+~2 MB PNGs each — 49 MB → ~2.3 MB total). Note: the Beras Kencur
+bottle photo is named `boto-beraskencur.webp` (filename typo kept
+as-is; referenced verbatim in `content.ts`).
 
 ## Adding SKUs / growing the site
 

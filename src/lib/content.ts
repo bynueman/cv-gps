@@ -32,17 +32,17 @@ export type TekoPackaging = "botol" | "kotak" | "toples" | "kemasan";
 /* ------------------------------------------------------------------ */
 export const logos = {
   /** corporate mark: red flower + blue "GPS", landscape, transparent */
-  gps: "/images/logo/gps.png",
+  gps: "/images/logo/gps.webp",
   /** playful yellow cartoon wordmark, landscape, transparent */
-  kuicip: "/images/logo/kuicip.png",
+  kuicip: "/images/logo/kuicip.webp",
   /** ornate art-nouveau emblem, portrait, transparent */
-  "putri-teko": "/images/logo/putriteko.png",
+  "putri-teko": "/images/logo/putriteko.webp",
 } as const;
 
 /** Transparent multi-product cutouts for layered hero/panel scenes */
 export const groupShots = {
-  kuicip: "/images/kuicip-nobg.png", // 3-pouch fan (Seaweed · Original · Balado)
-  "putri-teko": "/images/putriteko-nobg.png", // 3 RTD bottles + fresh spices
+  kuicip: "/images/kuicip-nobg.webp", // 3-pouch fan (Seaweed · Original · Balado)
+  "putri-teko": "/images/putriteko-nobg.webp", // 3 RTD bottles + fresh spices
 } as const;
 
 /* ------------------------------------------------------------------ */
@@ -133,7 +133,7 @@ export const kuicipProducts: Product[] = [
     ],
     color: "#F2B234",
     colorDark: "#9C6508",
-    image: "/images/kuicip/kuicip-ori.png",
+    image: "/images/kuicip/kuicip-ori.webp",
     featured: true,
   },
   {
@@ -156,7 +156,7 @@ export const kuicipProducts: Product[] = [
     ],
     color: "#D9442E",
     colorDark: "#8E2718",
-    image: "/images/kuicip/kuicip-balado.png",
+    image: "/images/kuicip/kuicip-balado.webp",
     featured: true,
   },
   {
@@ -179,7 +179,7 @@ export const kuicipProducts: Product[] = [
     ],
     color: "#C05A2E",
     colorDark: "#7A3418",
-    image: "/images/kuicip/kuicip-barbeque.png",
+    image: "/images/kuicip/kuicip-barbeque.webp",
   },
   {
     slug: "rendang",
@@ -201,7 +201,7 @@ export const kuicipProducts: Product[] = [
     ],
     color: "#7E3020",
     colorDark: "#4A1B11",
-    image: "/images/kuicip/kuicip-rendang.png",
+    image: "/images/kuicip/kuicip-rendang.webp",
   },
   {
     slug: "spicy-mala",
@@ -223,7 +223,7 @@ export const kuicipProducts: Product[] = [
     ],
     color: "#B3232E",
     colorDark: "#6D0F16",
-    image: "/images/kuicip/kuicip-spicymala.png",
+    image: "/images/kuicip/kuicip-spicymala.webp",
   },
   {
     slug: "seaweed",
@@ -245,7 +245,7 @@ export const kuicipProducts: Product[] = [
     ],
     color: "#3E8E52",
     colorDark: "#1F5230",
-    image: "/images/kuicip/kuicip-seaweed.png",
+    image: "/images/kuicip/kuicip-seaweed.webp",
     featured: true,
   },
   {
@@ -268,7 +268,7 @@ export const kuicipProducts: Product[] = [
     ],
     color: "#33302B",
     colorDark: "#191713",
-    image: "/images/kuicip/kuicip-truffle.png",
+    image: "/images/kuicip/kuicip-truffle.webp",
     featured: true,
   },
   {
@@ -291,7 +291,7 @@ export const kuicipProducts: Product[] = [
     ],
     color: "#8FAE3A",
     colorDark: "#4E6318",
-    image: "/images/kuicip/kuicip-chililime.png",
+    image: "/images/kuicip/kuicip-chililime.webp",
   },
 ];
 
@@ -346,7 +346,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#CBA35C",
     colorDark: "#7A5A25",
-    image: "/images/putri-teko/boto-beraskencur.png",
+    image: "/images/putri-teko/boto-beraskencur.webp",
     featured: true,
   },
   {
@@ -376,7 +376,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#8A4A26",
     colorDark: "#502713",
-    image: "/images/putri-teko/botol-gulaasam.png",
+    image: "/images/putri-teko/botol-gulaasam.webp",
   },
   {
     slug: "kunir-asam",
@@ -405,7 +405,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#D98E23",
     colorDark: "#8A5510",
-    image: "/images/putri-teko/botol-kuniasam.png",
+    image: "/images/putri-teko/botol-kuniasam.webp",
     featured: true,
   },
 
@@ -415,7 +415,7 @@ export const putriTekoProducts: Product[] = [
     brand: "putri-teko",
     group: "brew",
     packaging: "kotak",
-    name: { id: "Jahe Coklat", en: "Ginger Chocolate" },
+    name: { id: "Jahe Cokelat", en: "Ginger Chocolate" },
     short: {
       id: "Hangat jahe berpadu coklat — kombinasi yang menenangkan.",
       en: "Ginger warmth meets chocolate — a soothing pairing.",
@@ -437,7 +437,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#6B4226",
     colorDark: "#3E2413",
-    image: "/images/putri-teko/kotak-jahecoklat.png",
+    image: "/images/putri-teko/kotak-jahecoklat.webp",
   },
   {
     slug: "jahe-merah-kotak",
@@ -466,7 +466,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#A63A2A",
     colorDark: "#64190F",
-    image: "/images/putri-teko/kotak-jahemerah.png",
+    image: "/images/putri-teko/kotak-jahemerah.webp",
   },
   {
     slug: "jahe-serai",
@@ -495,7 +495,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#5F7A3D",
     colorDark: "#354A1E",
-    image: "/images/putri-teko/kotak-jaheserai.png",
+    image: "/images/putri-teko/kotak-jaheserai.webp",
   },
   {
     slug: "wedang-uwuh-kotak",
@@ -527,7 +527,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#C98A1B",
     colorDark: "#7A5208",
-    image: "/images/putri-teko/kotak-wedanguwuh.png",
+    image: "/images/putri-teko/kotak-wedanguwuh.webp",
     featured: true,
   },
 
@@ -559,7 +559,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#B99C55",
     colorDark: "#6E5A2A",
-    image: "/images/putri-teko/toples-gulabatukristal.png",
+    image: "/images/putri-teko/toples-gulabatukristal.webp",
   },
   {
     slug: "jahe-merah-toples",
@@ -591,7 +591,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#B3362B",
     colorDark: "#6D1812",
-    image: "/images/putri-teko/toples-jahemerah.png",
+    image: "/images/putri-teko/toples-jahemerah.webp",
     featured: true,
   },
   {
@@ -621,7 +621,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#6E8A3D",
     colorDark: "#3F5220",
-    image: "/images/putri-teko/toples-jaheserai.png",
+    image: "/images/putri-teko/toples-jaheserai.webp",
   },
   {
     slug: "wedang-uwuh-toples",
@@ -650,7 +650,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#C06B2D",
     colorDark: "#7A3E14",
-    image: "/images/putri-teko/toples-wedanguwuh.png",
+    image: "/images/putri-teko/toples-wedanguwuh.webp",
   },
 
   /* ── Kemasan · Racikan Praktis ──────────────────────────────────── */
@@ -684,7 +684,7 @@ export const putriTekoProducts: Product[] = [
     ],
     color: "#CDA02F",
     colorDark: "#77590E",
-    image: "/images/putri-teko/kemasan-ori.png",
+    image: "/images/putri-teko/kemasan-ori.webp",
   },
 ];
 
@@ -757,7 +757,7 @@ export const articles: Article[] = [
         en: "All of them start from the same ingredient — local cassava, sliced thin and fried crisp — proof that innovation doesn't have to mean imported ingredients.",
       },
     ],
-    image: "/images/kuicip/kuicip-balado.png",
+    image: "/images/kuicip/kuicip-balado.webp",
     featured: true,
   },
   {
@@ -782,7 +782,7 @@ export const articles: Article[] = [
         en: "Yet steeped in hot water, that handful becomes a glowing red drink with a signature warm aroma. Putri Teko offers it in several forms: sachet boxes, jar blends, and practical spice packs.",
       },
     ],
-    image: "/images/putri-teko/kotak-wedanguwuh.png",
+    image: "/images/putri-teko/kotak-wedanguwuh.webp",
     featured: true,
   },
   {
@@ -807,7 +807,7 @@ export const articles: Article[] = [
         en: "From there the process moves quickly — peeled, thin-sliced, fried, seasoned, and sealed in 70 gr ziplock packs — protecting freshness from our kitchen to the consumer's hands.",
       },
     ],
-    image: "/images/kuicip/kuicip-ori.png",
+    image: "/images/kuicip/kuicip-ori.webp",
     featured: true,
   },
   {
@@ -832,7 +832,7 @@ export const articles: Article[] = [
         en: "The ziplock completes the story — keeping things crisp if the snack must be stored, though in practice the pack usually empties before it's ever resealed.",
       },
     ],
-    image: "/images/kuicip/kuicip-truffle.png",
+    image: "/images/kuicip/kuicip-truffle.webp",
   },
   {
     slug: "pasar-lokal",
@@ -856,7 +856,7 @@ export const articles: Article[] = [
         en: "Two lessons came home with us: spicy variants always draw a queue, and the story behind Wedang Uwuh makes people linger longer than we expected.",
       },
     ],
-    image: "/images/putri-teko/toples-wedanguwuh.png",
+    image: "/images/putri-teko/toples-wedanguwuh.webp",
   },
   {
     slug: "kolaborasi-terbuka",
@@ -880,7 +880,7 @@ export const articles: Article[] = [
         en: "We believe good partnerships start with honest conversations about product, packaging, and market. Our Export page summarizes what we can explore together.",
       },
     ],
-    image: "/images/putri-teko/botol-gulaasam.png",
+    image: "/images/putri-teko/botol-gulaasam.webp",
   },
 ];
 
