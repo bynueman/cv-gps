@@ -2,10 +2,10 @@
 
 import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { useLang } from "@/lib/i18n";
-import { brands, kuicipProducts, putriTekoProducts } from "@/lib/content";
-import { ProductPackshot } from "@/components/ProductPackshot";
+import { brands, groupShots, logos } from "@/lib/content";
 import { ChipSVG } from "@/components/graphics/ChipSVG";
 import { SteamSVG } from "@/components/graphics/SteamSVG";
 
@@ -127,10 +127,6 @@ export function Hero() {
     return () => mm.revert();
   }, [lang]);
 
-  // hero picks: three contrasting Kuicip flavors + one RTD bottle
-  const heroPouches = [kuicipProducts[1], kuicipProducts[0], kuicipProducts[6]];
-  const heroBottle = putriTekoProducts[1];
-
   return (
     <section ref={scope} className="relative flex min-h-screen items-center overflow-hidden pb-16 pt-28 sm:pt-32">
       <div className="container-page grid items-center gap-14 lg:grid-cols-12">
@@ -159,14 +155,26 @@ export function Hero() {
               {t.hero.ctaContact}
             </Link>
           </div>
-          <div data-hero-copy className="mt-10 flex flex-wrap gap-6 text-sm font-medium text-espresso-600">
-            <span className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-gold-500" />
-              {t.hero.lineSnack} · {brands.kuicip.name}
+          <div data-hero-copy className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 text-sm font-medium text-espresso-600">
+            <span className="flex items-center gap-2.5">
+              <Image
+                src={logos.kuicip}
+                alt={`Logo ${brands.kuicip.name}`}
+                width={2560}
+                height={1440}
+                className="h-7 w-auto"
+              />
+              {t.hero.lineSnack}
             </span>
-            <span className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-ginger" />
-              {t.hero.lineBeverage} · {brands["putri-teko"].name}
+            <span className="flex items-center gap-2.5">
+              <Image
+                src={logos["putri-teko"]}
+                alt={`Logo ${brands["putri-teko"].name}`}
+                width={1440}
+                height={2560}
+                className="h-9 w-auto"
+              />
+              {t.hero.lineBeverage}
             </span>
           </div>
         </div>
@@ -218,28 +226,28 @@ export function Hero() {
               </svg>
 
               <div className="relative flex items-end justify-center pt-8">
-                {heroPouches.map((p, i) => (
-                  <div
-                    key={p.slug}
-                    data-hero-pouch
-                    className={`w-[44%] drop-shadow-lg ${
-                      i === 1 ? "z-10 -mx-[7%] w-[52%]" : i === 0 ? "-rotate-6" : "rotate-6"
-                    }`}
-                  >
-                    <ProductPackshot product={p} lang={lang} className="w-full" />
-                  </div>
-                ))}
+                {/* real transparent cutout: Seaweed · Original · Balado pouch fan */}
+                <div data-hero-pouch className="w-full drop-shadow-lg">
+                  <Image
+                    src={groupShots.kuicip}
+                    alt="Kuicip Seaweed, Original, dan Balado"
+                    width={1080}
+                    height={1350}
+                    priority
+                    className="h-auto w-full"
+                  />
+                </div>
               </div>
             </div>
 
             {/* — Putri Teko side — */}
-            <div className="relative w-[30%] pb-2">
+            <div className="relative w-[40%] pb-2">
               <div
                 data-hero-arch
-                className="absolute inset-x-0 bottom-0 top-16 rounded-t-full bg-ginger/25"
+                className="absolute inset-x-2 bottom-0 top-16 rounded-t-full bg-ginger/25"
                 aria-hidden="true"
               />
-              <div data-hero-steam className="pointer-events-none absolute -top-16 left-1/2 w-[80%] -translate-x-1/2">
+              <div data-hero-steam className="pointer-events-none absolute -top-14 left-1/2 w-[60%] -translate-x-1/2">
                 <SteamSVG className="w-full" />
               </div>
               {[0, 1, 2].map((i) => (
@@ -251,8 +259,16 @@ export function Hero() {
                   style={{ left: `${22 + i * 26}%`, top: `${8 + (i % 2) * 10}%` }}
                 />
               ))}
-              <div data-hero-bottle className="relative px-2 drop-shadow-lg">
-                <ProductPackshot product={heroBottle} lang={lang} className="w-full" />
+              {/* real transparent cutout: Beras Kencur · Gula Asam · Kunir Asam bottles */}
+              <div data-hero-bottle className="relative drop-shadow-lg">
+                <Image
+                  src={groupShots["putri-teko"]}
+                  alt="Putri Teko Beras Kencur, Gula Asam, dan Kunir Asam"
+                  width={1080}
+                  height={1350}
+                  priority
+                  className="h-auto w-full"
+                />
               </div>
             </div>
           </div>

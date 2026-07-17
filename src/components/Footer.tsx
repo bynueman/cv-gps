@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLang } from "@/lib/i18n";
-import { brands, company } from "@/lib/content";
+import { brands, company, logos } from "@/lib/content";
 import { LangSwitch } from "@/components/LangSwitch";
 
 export function Footer() {
@@ -21,9 +22,16 @@ export function Footer() {
     <footer className="bg-espresso-950 text-cream-200">
       <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-gold-500 font-display text-sm font-bold text-espresso-950">
-              GPS
+          <div className="flex items-center gap-3">
+            {/* corporate mark is red/blue — a cream chip keeps it legible on the dark band */}
+            <span className="flex h-10 items-center rounded-xl bg-cream-50 px-2.5">
+              <Image
+                src={logos.gps}
+                alt={`Logo ${company.name}`}
+                width={128}
+                height={72}
+                className="h-6 w-auto"
+              />
             </span>
             <span className="font-display text-lg font-semibold text-cream-100">
               {company.name}

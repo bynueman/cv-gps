@@ -48,12 +48,16 @@ export function FeaturedProducts() {
         <h3 data-reveal className="mt-12 font-display text-xl font-semibold">
           {t.featured.kuicipTitle}
         </h3>
-        <ul className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
-          {featuredKuicip.map((p) => (
-            <li key={p.slug} data-reveal>
-              <ProductCard product={p} />
-            </li>
-          ))}
+        {/* bento rhythm: wide anchor cards on the corners, upright cards between */}
+        <ul className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-5">
+          {featuredKuicip.map((p, i) => {
+            const isAnchor = i === 0 || i === featuredKuicip.length - 1;
+            return (
+              <li key={p.slug} data-reveal className={isAnchor ? "col-span-2" : ""}>
+                <ProductCard product={p} size={isAnchor ? "wide" : "default"} />
+              </li>
+            );
+          })}
         </ul>
 
         {/* Putri Teko highlights — two subgroups, wide bento cards */}

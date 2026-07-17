@@ -6,7 +6,7 @@ company from Sleman, Yogyakarta, presenting two product families:
 **Putri Teko** (traditional/herbal beverages).
 
 Stack: **Next.js 14 (App Router) · TypeScript · Tailwind CSS · GSAP + ScrollTrigger**.
-Fully static output (30 prerendered pages).
+Fully static output (36 prerendered pages).
 
 ```bash
 npm install
@@ -19,18 +19,22 @@ npm run build  # production build
 The copy is written to stay inside publicly known context and invite
 inquiry instead of making claims.
 
-**Based on public context** (safe to keep):
+**Based on public context + real packaging photos** (safe to keep):
 - Company: food production, Sleman, DI Yogyakarta.
-- Kuicip: cassava chips, 70 gr packaging, flavors Original, Balado,
-  Barbeque, Rendang, Spicy Mala, Seaweed, Truffle, Chili Lime.
-- Putri Teko: traditional/herbal drinks incl. ginger-based drinks and
-  Wedang Uwuh.
+- Kuicip: cassava chips ("Cassa Lite"), 70 gr ziplock, flavors Original,
+  Balado, Barbeque, Rendang, Spicy Mala, Seaweed, Truffle, Chili Lime —
+  each with a real studio packshot in `public/images/kuicip/`.
+- Putri Teko: 12 photographed SKUs in four packaging forms
+  (`public/images/putri-teko/`):
+  - **botol** (RTD): Beras Kencur, Gula Asam, Kunir Asam
+  - **kotak** (sachet box): Jahe Coklat, Jahe Merah, Jahe Serai, Wedang Uwuh
+  - **toples** (jar): Gula Batu Kristal, Jahe Merah Gula Batu, Jahe Serai, Wedang Uwuh
+  - **kemasan** (practical pack): Racikan Original
 
 **Editable placeholders** (marked in code, replace before launch):
 - Street address, email, WhatsApp (`company` in `src/lib/content.ts`).
-- The Putri Teko RTD vs brew split and the SKUs flagged
-  `placeholder: true` (Kunyit Asam, Jahe Merah Seduh, Wedang Rempah).
-- All product blurbs/flavor personalities, serving notes, and articles.
+- All product blurbs/flavor personalities, serving notes, and articles
+  (weights/portions only where visible on the photographed packaging).
 - No certifications, export destinations, volumes, or founding dates
   are claimed anywhere; export copy is inquiry-oriented on purpose.
 
@@ -42,8 +46,8 @@ inquiry instead of making claims.
 | `/products` | `app/products/page.tsx` | `pages/ProductsOverview` |
 | `/products/kuicip` | `app/products/kuicip/page.tsx` | `pages/KuicipCatalog` |
 | `/products/kuicip/[slug]` | `…/[slug]/page.tsx` (SSG, 8 paths) | `pages/ProductDetail` |
-| `/products/putri-teko` | `app/products/putri-teko/page.tsx` | `pages/TekoCatalog` |
-| `/products/putri-teko/[slug]` | `…/[slug]/page.tsx` (SSG, 6 paths) | `pages/ProductDetail` |
+| `/products/putri-teko` | `app/products/putri-teko/page.tsx` | `pages/TekoCatalog` (grouped botol → kotak → toples → kemasan) |
+| `/products/putri-teko/[slug]` | `…/[slug]/page.tsx` (SSG, 12 paths) | `pages/ProductDetail` |
 | `/export` | `app/export/page.tsx` | `pages/ExportPage` |
 | `/news` | `app/news/page.tsx` | `pages/NewsList` |
 | `/news/[slug]` | `app/news/[slug]/page.tsx` (SSG, 6 paths) | `pages/ArticleDetail` |
@@ -107,7 +111,7 @@ simplified fade-only pass. Cleanup via `gsap.matchMedia().revert()`.
 
 | Where | What |
 | --- | --- |
-| Home hero (`sections/Hero`) | Load-in stagger for copy/packshots, then a **pinned scrub story** (~620px, desktop only): ziplock knob slides across → track dims → chip ovals emerge with back-out overshoot → pouches lift → steam paths draw in (dashoffset) → arches stretch; scroll hint fades. Idle loops: steam float + ingredient particles. |
+| Home hero (`sections/Hero`) | Load-in stagger for copy + the two real transparent cutouts (`kuicip-nobg`, `putriteko-nobg`), then a **pinned scrub story** (~620px, desktop only): ziplock knob slides across → track dims → chip ovals emerge with back-out overshoot → pouch fan lifts → steam paths draw in (dashoffset) → arches stretch; scroll hint fades. Idle loops: steam float + ingredient particles. |
 | `MotionBackdrop` | Reusable background layer (variants `kuicip`/`teko`/`neutral`): chip ovals, dotted spice arcs, ribbons, steam curves, ingredient dots. `data-drift` = scrubbed parallax factor; `data-float` = desktop idle drift. Used on intro, featured, catalogs, page headers, product detail hero. |
 | `useReveal` hook | Section entrances: `[data-reveal]` children fade + rise 28px, 0.12s stagger, once, at `top 78%`. Used by every section and inner page. |
 | Product cards | CSS-only hover: card lift + shadow, packshot tilt, accent circle scale. |
@@ -126,17 +130,23 @@ simplified fade-only pass. Cleanup via `gsap.matchMedia().revert()`.
 
 ## Images
 
-See `public/images/README.md`. Every product/article has an
-`image: string | null` slot in `content.ts`; `null` renders the SVG
-placeholder packshots, a path switches to `next/image` automatically
-(`Packshot.tsx` / `ProductPackshot.tsx`).
+See `public/images/README.md` for the full asset inventory. All 20
+products point at real studio packshots (opaque 1086×1448, shared warm
+cream backdrop → rendered `object-cover` in rounded card frames).
+Transparent assets (`logo/*`, `kuicip-nobg`, `putriteko-nobg`) float on
+colored planes in the hero and family panels. `image: null` still falls
+back to the SVG placeholder packshots (`Packshot.tsx` /
+`ProductPackshot.tsx`), so unphotographed future SKUs degrade cleanly.
+Note: the Beras Kencur bottle photo is named `boto-beraskencur.png`
+(filename typo kept as-is; referenced verbatim in `content.ts`).
 
 ## Adding SKUs / growing the site
 
 - New Kuicip flavor: add one object to `kuicipProducts` — catalog,
   static params, related products, and featured logic pick it up.
 - New Putri Teko SKU: add to `putriTekoProducts` with `group: "rtd" |
-  "brew"`.
+  "brew"` **and** `packaging: "botol" | "kotak" | "toples" | "kemasan"`
+  (drives catalog grouping, card aspect, and the packaging badge).
 - New article: add to `articles`; `featured: true` surfaces it on home.
 - New product family: extend `brands` + add a category page following
   `KuicipCatalog`/`TekoCatalog`.
@@ -144,9 +154,11 @@ placeholder packshots, a path switches to `next/image` automatically
 ## Handoff checklist
 
 - [ ] Replace `company` placeholders (address, email, WhatsApp).
-- [ ] Confirm the Putri Teko SKU list; remove `placeholder: true` items
-      that don't exist.
-- [ ] Drop real packshots into `public/images/**` and set paths.
+- [x] Confirm the Putri Teko SKU list — now mirrors the 12 photographed
+      products (botol/kotak/toples/kemasan).
+- [x] Drop real packshots into `public/images/**` and set paths.
+- [ ] Replace article images (currently reusing product shots) with
+      real editorial photos in `public/images/news/`.
 - [ ] Wire `ContactForm.handleSubmit` to an API route / form service.
 - [ ] Embed the real map on `/contact` (slot is ready).
 - [ ] Review article copy or swap `articles` for a CMS feed

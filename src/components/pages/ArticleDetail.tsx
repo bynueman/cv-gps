@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
 import { articles, type Article } from "@/lib/content";
@@ -49,10 +50,20 @@ export function ArticleDetail({ article }: { article: Article }) {
         {/* Hero image slot */}
         <div
           data-reveal
-          className="mx-auto mt-10 flex aspect-[16/7] max-w-4xl items-center justify-center overflow-hidden rounded-3xl bg-espresso-800"
+          className="relative mx-auto mt-10 flex aspect-[16/7] max-w-4xl items-center justify-center overflow-hidden rounded-3xl bg-espresso-800"
         >
-          {/* set `image` on the article in src/lib/content.ts */}
-          <span className="font-display text-6xl font-semibold text-cream-100/15">GPS</span>
+          {article.image ? (
+            <Image
+              src={article.image}
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 56rem, 100vw"
+              className="object-cover"
+            />
+          ) : (
+            /* set `image` on the article in src/lib/content.ts */
+            <span className="font-display text-6xl font-semibold text-cream-100/15">GPS</span>
+          )}
         </div>
 
         {/* Reading column */}

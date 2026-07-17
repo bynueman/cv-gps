@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import type { Article } from "@/lib/content";
 import { useLang, type Lang } from "@/lib/i18n";
 
@@ -30,14 +31,24 @@ export function ArticleCard({
     <article className={`group ${size === "featured" ? "" : ""}`}>
       <Link href={href} className="block">
         <div
-          className={`flex items-center justify-center overflow-hidden rounded-2xl bg-espresso-800 ${
+          className={`relative flex items-center justify-center overflow-hidden rounded-2xl bg-espresso-800 ${
             size === "featured" ? "aspect-[16/9]" : "aspect-[3/2]"
           }`}
         >
-          {/* image slot — set `image` on the article in src/lib/content.ts */}
-          <span className="font-display text-5xl font-semibold text-cream-100/15 transition-transform duration-500 group-hover:scale-105">
-            GPS
-          </span>
+          {article.image ? (
+            <Image
+              src={article.image}
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 24rem, 90vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            /* image slot — set `image` on the article in src/lib/content.ts */
+            <span className="font-display text-5xl font-semibold text-cream-100/15 transition-transform duration-500 group-hover:scale-105">
+              GPS
+            </span>
+          )}
         </div>
         <div className="mt-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.15em]">
           <span className="rounded-full bg-gold-500/15 px-3 py-1 text-gold-700">

@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
-import { brands, kuicipProducts, putriTekoProducts } from "@/lib/content";
-import { ProductPackshot } from "@/components/ProductPackshot";
+import { brands, groupShots, logos } from "@/lib/content";
 
 /**
  * Split storytelling: two worlds under one company. Kuicip panel is
- * bright and energetic; Putri Teko panel is dark and warm. Each leads
- * to its category page.
+ * bright and energetic; Putri Teko panel is dark and warm. Each panel
+ * carries its real brand logo and the transparent group cutout of its
+ * actual products, and leads to its category page.
  */
 export function ProductFamilies() {
   const { lang, t } = useLang();
@@ -42,8 +43,14 @@ export function ProductFamilies() {
               aria-hidden="true"
             />
             <div className="relative">
-              <h3 className="font-display text-4xl font-bold tracking-tight">{brands.kuicip.name}</h3>
-              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-espresso-800/80">
+              <Image
+                src={logos.kuicip}
+                alt={`Logo ${brands.kuicip.name}`}
+                width={2560}
+                height={1440}
+                className="h-12 w-auto drop-shadow-sm sm:h-14"
+              />
+              <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-espresso-800/80">
                 {brands.kuicip.tag[lang]}
               </p>
               <p className="mt-5 font-display text-xl font-semibold">{t.families.kuicip.lead}</p>
@@ -53,13 +60,14 @@ export function ProductFamilies() {
             </div>
             <div className="relative mt-8 flex items-end justify-between gap-6">
               <span className="btn-dark !px-5 !py-2.5">{t.families.kuicip.cta} →</span>
-              <div className="flex w-40 items-end sm:w-48">
-                <div className="w-1/2 -rotate-6 drop-shadow-md transition-transform duration-300 group-hover:-translate-y-1">
-                  <ProductPackshot product={kuicipProducts[1]} lang={lang} />
-                </div>
-                <div className="z-10 -ml-4 w-[58%] drop-shadow-md transition-transform duration-300 group-hover:-translate-y-2">
-                  <ProductPackshot product={kuicipProducts[6]} lang={lang} />
-                </div>
+              <div className="w-44 drop-shadow-md transition-transform duration-300 group-hover:-translate-y-2 sm:w-52">
+                <Image
+                  src={groupShots.kuicip}
+                  alt="Kuicip Seaweed, Original, dan Balado"
+                  width={1080}
+                  height={1350}
+                  className="h-auto w-full"
+                />
               </div>
             </div>
           </Link>
@@ -78,13 +86,24 @@ export function ProductFamilies() {
             >
               <path d="M8 112 C60 30 200 20 272 64" stroke="#C06B2D" strokeWidth="3" strokeLinecap="round" strokeDasharray="1 12" />
             </svg>
+            <div className="relative flex items-start gap-5">
+              <Image
+                src={logos["putri-teko"]}
+                alt={`Logo ${brands["putri-teko"].name}`}
+                width={1440}
+                height={2560}
+                className="h-24 w-auto drop-shadow-sm sm:h-28"
+              />
+              <div>
+                <h3 className="font-display text-4xl font-bold tracking-tight text-turmeric">
+                  {brands["putri-teko"].name}
+                </h3>
+                <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-cream-200/70">
+                  {brands["putri-teko"].tag[lang]}
+                </p>
+              </div>
+            </div>
             <div className="relative">
-              <h3 className="font-display text-4xl font-bold tracking-tight text-turmeric">
-                {brands["putri-teko"].name}
-              </h3>
-              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-cream-200/70">
-                {brands["putri-teko"].tag[lang]}
-              </p>
               <p className="mt-5 font-display text-xl font-semibold">{t.families.teko.lead}</p>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-cream-200/85">
                 {t.families.teko.body}
@@ -92,13 +111,14 @@ export function ProductFamilies() {
             </div>
             <div className="relative mt-8 flex items-end justify-between gap-6">
               <span className="btn-primary !px-5 !py-2.5">{t.families.teko.cta} →</span>
-              <div className="flex w-36 items-end gap-2 sm:w-44">
-                <div className="w-[42%] drop-shadow-md transition-transform duration-300 group-hover:-translate-y-1">
-                  <ProductPackshot product={putriTekoProducts[1]} lang={lang} />
-                </div>
-                <div className="w-[58%] drop-shadow-md transition-transform duration-300 group-hover:-translate-y-2">
-                  <ProductPackshot product={putriTekoProducts[3]} lang={lang} />
-                </div>
+              <div className="w-40 drop-shadow-md transition-transform duration-300 group-hover:-translate-y-2 sm:w-48">
+                <Image
+                  src={groupShots["putri-teko"]}
+                  alt="Botol Putri Teko Beras Kencur, Gula Asam, dan Kunir Asam"
+                  width={1080}
+                  height={1350}
+                  className="h-auto w-full"
+                />
               </div>
             </div>
           </Link>

@@ -32,6 +32,13 @@ const id = {
     relatedArticles: "Artikel terkait",
     editableNote: "Konten placeholder — sesuaikan dengan data final.",
   },
+  /** short badge labels for the real Putri Teko packaging forms */
+  packaging: {
+    botol: "Botol",
+    kotak: "Kotak Sachet",
+    toples: "Toples",
+    kemasan: "Kemasan",
+  },
   hero: {
     kicker: "CV Gama Putra Santosa · Sleman, Yogyakarta",
     title: "Pangan lokal, dibawa ke panggung modern.",
@@ -170,13 +177,28 @@ const id = {
     kicker: "Keluarga Produk · Putri Teko",
     title: "Minuman tradisional, diracik untuk hari ini.",
     subtitle:
-      "Dari wedang jahe hingga wedang uwuh — rempah asli diseduh dan dikemas dalam dua cara menikmati: siap minum, atau diseduh sendiri di rumah.",
-    rtdTitle: "Siap Minum",
-    rtdBody: "Diseduh di dapur kami, tinggal dibuka dan dinikmati — hangat maupun dingin.",
+      "Dari jamu botol siap minum hingga racikan wedang uwuh — rempah asli hadir dalam empat bentuk kemasan: botol, kotak sachet, toples, dan kemasan praktis.",
+    rtdTitle: "Botol · Siap Minum",
+    rtdBody: "Jamu klasik yang diseduh di dapur kami — tinggal buka botolnya, nikmat hangat maupun dingin.",
     brewTitle: "Seduh Sendiri",
-    brewBody: "Rempah kering dalam takaran pas, untuk yang ingin menikmati ritual menyeduh.",
+    brewBody:
+      "Tiga bentuk kemasan untuk yang menikmati ritual menyeduh: kotak sachet praktis, toples racikan untuk stok dapur, dan kemasan rempah lengkap.",
+    packs: {
+      kotak: {
+        title: "Kotak Sachet",
+        body: "Takaran pas sekali seduh dalam kotak batik khas.",
+      },
+      toples: {
+        title: "Toples Racikan",
+        body: "Racikan siap seduh untuk stok dapur — ambil sesuai selera.",
+      },
+      kemasan: {
+        title: "Kemasan Praktis",
+        body: "Rempah utuh lengkap dengan gula batu dalam satu kemasan.",
+      },
+    },
     servingLabel: "Penyajian",
-    groupNote: "Pembagian kategori bersifat placeholder — sesuaikan dengan lini produk final.",
+    groupNote: "Detail varian dan takaran dapat disesuaikan dengan data produk final.",
   },
   productDetail: {
     categoryLabel: "Kategori",
@@ -224,6 +246,12 @@ const en: typeof id = {
     home: "Home",
     relatedArticles: "Related articles",
     editableNote: "Placeholder content — replace with final data.",
+  },
+  packaging: {
+    botol: "Bottle",
+    kotak: "Sachet Box",
+    toples: "Jar",
+    kemasan: "Pack",
   },
   hero: {
     kicker: "CV Gama Putra Santosa · Sleman, Yogyakarta",
@@ -363,13 +391,28 @@ const en: typeof id = {
     kicker: "Product Family · Putri Teko",
     title: "Traditional beverages, crafted for today.",
     subtitle:
-      "From ginger wedang to Wedang Uwuh — real spices brewed and packaged two ways: ready to drink, or brewed at home.",
-    rtdTitle: "Ready to Drink",
-    rtdBody: "Brewed in our kitchen — just open and enjoy, warm or chilled.",
+      "From ready-to-drink bottled jamu to Wedang Uwuh blends — real spices in four packaging forms: bottles, sachet boxes, jars, and practical packs.",
+    rtdTitle: "Bottles · Ready to Drink",
+    rtdBody: "Classic jamu brewed in our kitchen — just open the bottle, enjoy warm or chilled.",
     brewTitle: "Brew at Home",
-    brewBody: "Dried spices in measured portions, for those who savor the brewing ritual.",
+    brewBody:
+      "Three packaging forms for those who savor the brewing ritual: practical sachet boxes, jar blends for the pantry, and complete spice packs.",
+    packs: {
+      kotak: {
+        title: "Sachet Boxes",
+        body: "Measured single-steep portions in the signature batik box.",
+      },
+      toples: {
+        title: "Jar Blends",
+        body: "Ready-to-steep blends for the pantry — spoon out to taste.",
+      },
+      kemasan: {
+        title: "Practical Packs",
+        body: "Whole spices complete with rock sugar in one pack.",
+      },
+    },
     servingLabel: "Serving",
-    groupNote: "The category split is a placeholder — align it with the final product line.",
+    groupNote: "Variant details and portions can be aligned with final product data.",
   },
   productDetail: {
     categoryLabel: "Category",

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
-import { brands, featuredKuicip, featuredTekoBrew, featuredTekoRtd } from "@/lib/content";
+import { brands, featuredKuicip, featuredTekoBrew, featuredTekoRtd, logos } from "@/lib/content";
 import { PageHeader } from "@/components/PageHeader";
 import { ProductCard } from "@/components/ProductCard";
 import { MotionBackdrop } from "@/components/MotionBackdrop";
@@ -29,10 +30,14 @@ export function ProductsOverview() {
           <div className="relative overflow-hidden rounded-3xl border border-espresso-900/10 bg-cream-50 p-7 shadow-card sm:p-10">
             <MotionBackdrop variant="kuicip" />
             <div className="relative">
-              <div data-reveal className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
-                <h2 className="font-display text-4xl font-bold tracking-tight text-gold-600">
-                  {brands.kuicip.name}
-                </h2>
+              <div data-reveal className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <Image
+                  src={logos.kuicip}
+                  alt={`Logo ${brands.kuicip.name}`}
+                  width={2560}
+                  height={1440}
+                  className="h-12 w-auto sm:h-14"
+                />
                 <span className="text-sm font-semibold uppercase tracking-[0.18em] text-espresso-600">
                   {brands.kuicip.tag[lang]}
                 </span>
@@ -62,13 +67,22 @@ export function ProductsOverview() {
           <div className="relative overflow-hidden rounded-3xl bg-espresso-900 p-7 text-cream-100 shadow-card sm:p-10">
             <MotionBackdrop variant="teko" />
             <div className="relative">
-              <div data-reveal className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
-                <h2 className="font-display text-4xl font-bold tracking-tight text-turmeric">
-                  {brands["putri-teko"].name}
-                </h2>
-                <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cream-200/70">
-                  {brands["putri-teko"].tag[lang]}
-                </span>
+              <div data-reveal className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                <Image
+                  src={logos["putri-teko"]}
+                  alt={`Logo ${brands["putri-teko"].name}`}
+                  width={1440}
+                  height={2560}
+                  className="h-20 w-auto sm:h-24"
+                />
+                <div>
+                  <h2 className="font-display text-4xl font-bold tracking-tight text-turmeric">
+                    {brands["putri-teko"].name}
+                  </h2>
+                  <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cream-200/70">
+                    {brands["putri-teko"].tag[lang]}
+                  </span>
+                </div>
               </div>
               <p data-reveal className="mt-4 max-w-2xl text-base leading-relaxed text-cream-200/85">
                 {brands["putri-teko"].story[lang]}

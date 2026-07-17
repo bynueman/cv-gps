@@ -34,20 +34,43 @@ export function ProductDetail({ product }: { product: Product }) {
         {/* Hero: packshot on a soft colored plane + product info */}
         <div className="mt-8 grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
           <div data-reveal className="relative lg:col-span-5">
-            <div
-              className="relative flex items-end justify-center overflow-hidden rounded-3xl pb-0 pt-10 shadow-card"
-              style={{ backgroundColor: `${product.color}26` }}
-            >
-              <MotionBackdrop variant={isKuicip ? "kuicip" : "teko"} />
-              <div
-                className="absolute -left-10 -top-10 h-44 w-44 rounded-full opacity-20"
-                style={{ backgroundColor: product.color }}
-                aria-hidden="true"
-              />
-              <div className={`relative drop-shadow-xl ${isKuicip ? "w-[62%]" : "w-[46%]"} pb-6`}>
-                <ProductPackshot product={product} lang={lang} />
+            {product.image ? (
+              /* real studio shot fills the panel edge-to-edge */
+              <div className="relative">
+                <ProductPackshot
+                  product={product}
+                  lang={lang}
+                  rounded="rounded-3xl"
+                  className="!aspect-[3/4] shadow-card"
+                />
+                {!isKuicip && product.packaging ? (
+                  <span className="absolute left-4 top-4 rounded-full bg-cream-50/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-espresso-800 backdrop-blur-sm">
+                    {t.packaging[product.packaging]}
+                  </span>
+                ) : null}
+                <span
+                  className="absolute bottom-0 left-8 right-8 h-1.5 rounded-t-full opacity-90"
+                  style={{ backgroundColor: product.color }}
+                  aria-hidden="true"
+                />
               </div>
-            </div>
+            ) : (
+              /* fallback: SVG placeholder on a tinted plane */
+              <div
+                className="relative flex items-end justify-center overflow-hidden rounded-3xl pb-0 pt-10 shadow-card"
+                style={{ backgroundColor: `${product.color}26` }}
+              >
+                <MotionBackdrop variant={isKuicip ? "kuicip" : "teko"} />
+                <div
+                  className="absolute -left-10 -top-10 h-44 w-44 rounded-full opacity-20"
+                  style={{ backgroundColor: product.color }}
+                  aria-hidden="true"
+                />
+                <div className={`relative drop-shadow-xl ${isKuicip ? "w-[62%]" : "w-[46%]"} pb-6`}>
+                  <ProductPackshot product={product} lang={lang} />
+                </div>
+              </div>
+            )}
             {isKuicip && brand.weight ? (
               <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-espresso-500">
                 {t.productDetail.weightLabel}: {brand.weight}

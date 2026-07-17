@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLang } from "@/lib/i18n";
-import { company } from "@/lib/content";
+import { company, logos } from "@/lib/content";
 import { LangSwitch } from "@/components/LangSwitch";
 
 const links = [
@@ -45,9 +46,14 @@ export function Header() {
       <div className="container-page flex h-16 items-center justify-between gap-6 sm:h-20">
         {/* Logo area */}
         <Link href="/" className="flex items-center gap-2.5" aria-label={company.name}>
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-espresso-900 font-display text-sm font-bold text-gold-400">
-            GPS
-          </span>
+          <Image
+            src={logos.gps}
+            alt={`Logo ${company.name}`}
+            width={128}
+            height={72}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
           <span className="hidden flex-col leading-tight sm:flex">
             <span className="font-display text-base font-semibold tracking-tight">
               Gama Putra Santosa
