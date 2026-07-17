@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import type { Product } from "@/lib/content";
 import { useLang } from "@/lib/i18n";
 import { ProductPackshot } from "@/components/ProductPackshot";
@@ -32,31 +33,54 @@ export function ProductCard({
     return (
       <Link
         href={href}
-        className="group relative flex items-center gap-5 overflow-hidden rounded-3xl border border-espresso-900/10 bg-cream-50 p-4 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift sm:gap-6 sm:p-5"
+        className="group relative flex h-full overflow-hidden rounded-3xl border border-espresso-900/10 bg-cream-50 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
       >
-        <div
-          className="absolute -right-10 -top-10 h-36 w-36 rounded-full opacity-[0.14] transition-transform duration-500 group-hover:scale-125"
-          style={{ backgroundColor: product.color }}
-          aria-hidden="true"
-        />
-        <div className="relative w-28 shrink-0 sm:w-32">
-          <ProductPackshot product={product} lang={lang} zoom className="shadow-card" />
+        {/* full-height photo panel — stretches with the row so the card
+            works as a bento tile next to tall upright cards */}
+        <div className="relative w-[42%] min-h-[11rem] shrink-0 self-stretch overflow-hidden">
+          {product.image ? (
+            <Image
+              src={product.image}
+              alt={
+                product.brand === "kuicip"
+                  ? `Kuicip ${product.name[lang]}`
+                  : `Putri Teko ${product.name[lang]}`
+              }
+              fill
+              sizes="(min-width: 1024px) 18rem, 45vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center p-3">
+              <ProductPackshot product={product} lang={lang} className="w-full" />
+            </div>
+          )}
           {chip ? (
-            <span className="absolute left-1.5 top-1.5 rounded-full bg-cream-50/90 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-espresso-800 backdrop-blur-sm">
+            <span className="absolute left-2.5 top-2.5 rounded-full bg-cream-50/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-espresso-800 backdrop-blur-sm">
               {chip}
             </span>
           ) : null}
+          <span
+            className="absolute bottom-0 left-4 right-4 h-1 rounded-t-full opacity-80"
+            style={{ backgroundColor: product.color }}
+            aria-hidden="true"
+          />
         </div>
-        <div className="relative min-w-0 py-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: product.colorDark }}>
+        <div className="relative flex min-w-0 grow flex-col justify-center p-5 sm:p-6">
+          <div
+            className="absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-[0.12] transition-transform duration-500 group-hover:scale-125"
+            style={{ backgroundColor: product.color }}
+            aria-hidden="true"
+          />
+          <p className="relative text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: product.colorDark }}>
             {product.personality[lang]}
           </p>
-          <h3 className="mt-1.5 font-display text-xl font-semibold leading-snug">{product.name[lang]}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-espresso-600">{product.short[lang]}</p>
+          <h3 className="relative mt-1.5 font-display text-xl font-semibold leading-snug">{product.name[lang]}</h3>
+          <p className="relative mt-2 text-sm leading-relaxed text-espresso-600">{product.short[lang]}</p>
           {showServing && product.serving ? (
-            <p className="mt-2 text-xs font-medium text-espresso-500">{product.serving[lang]}</p>
+            <p className="relative mt-2 text-xs font-medium text-espresso-500">{product.serving[lang]}</p>
           ) : null}
-          <span className="mt-3 inline-block text-sm font-semibold text-gold-600">
+          <span className="relative mt-3 inline-block text-sm font-semibold text-gold-600">
             {t.common.viewDetail} →
           </span>
         </div>
