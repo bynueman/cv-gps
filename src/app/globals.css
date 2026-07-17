@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-padding-top: 5.5rem; /* anchor offset under the sticky header */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  @apply bg-cream-100 text-espresso-900 font-sans antialiased;
+}
+
+::selection {
+  @apply bg-gold-400/60 text-espresso-950;
+}
+
+/* Reveal targets start visible; GSAP hides + animates them only when
+   motion is allowed, so no-JS and reduced-motion users see everything. */
+[data-reveal] {
+  will-change: transform, opacity;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8 lg:px-12;
+  }
+  .kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-gold-600;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-gold-500 text-espresso-950 hover:bg-gold-400;
+  }
+  .btn-outline {
+    @apply btn border border-espresso-900/25 text-espresso-900 hover:border-espresso-900 hover:bg-espresso-900 hover:text-cream-100;
+  }
+  .btn-dark {
+    @apply btn bg-espresso-900 text-cream-100 hover:bg-espresso-800;
+  }
+}
