@@ -8,9 +8,11 @@ import { featuredArticles } from "@/lib/content";
 import { formatDate } from "@/components/ArticleCard";
 
 /**
- * News bento grid (Claude Design import): one large 3×2 image card
- * plus two stacked cards, reusing the same `featuredArticles` data as
- * before — just a new grid shape and a leaner card (no excerpt).
+ * News bento (Claude Design import, re-tuned for real photos): one
+ * large hero card plus two stacked cards. Images use `aspect-[3/4]`
+ * (the real packshots' own proportions, since articles reuse product
+ * photos) instead of the mockup's literal pixel heights, which
+ * cropped portrait photos down to an unrecognizable sliver.
  */
 export function NewsPreview() {
   const { lang, t } = useLang();
@@ -34,14 +36,14 @@ export function NewsPreview() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-6 lg:auto-rows-[230px]">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
           {hero ? (
             <Link
               data-reveal
               href={`/news/${hero.slug}`}
-              className="group flex flex-col overflow-hidden rounded-3xl bg-homeCard transition-transform duration-300 hover:-translate-y-1.5 lg:col-[1/4] lg:row-[1/3]"
+              className="group flex flex-col overflow-hidden rounded-3xl bg-homeCard transition-transform duration-300 hover:-translate-y-1.5"
             >
-              <div className="relative h-[270px] flex-none">
+              <div className="relative aspect-[3/4] flex-none overflow-hidden sm:aspect-[4/3]">
                 {hero.image ? (
                   <Image
                     src={hero.image}
@@ -56,39 +58,39 @@ export function NewsPreview() {
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.04em] text-homeTerracotta">
                   {hero.category[lang]} · {formatDate(hero.date, lang)}
                 </p>
-                <p className="font-homeDisplay text-[19px] leading-snug text-homeInk">{hero.title[lang]}</p>
+                <p className="font-homeDisplay text-xl leading-snug text-homeInk">{hero.title[lang]}</p>
               </div>
             </Link>
           ) : null}
 
-          {rest.map((a, i) => (
-            <Link
-              key={a.slug}
-              data-reveal
-              href={`/news/${a.slug}`}
-              className={`group flex flex-col overflow-hidden rounded-3xl bg-homeCard transition-transform duration-300 hover:-translate-y-1.5 lg:col-[4/7] ${
-                i === 0 ? "lg:row-[1/2]" : "lg:row-[2/3]"
-              }`}
-            >
-              <div className="relative h-[120px] flex-none">
-                {a.image ? (
-                  <Image
-                    src={a.image}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 36rem, 90vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : null}
-              </div>
-              <div className="flex flex-col gap-1.5 p-5">
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.04em] text-homeTerracotta">
-                  {a.category[lang]} · {formatDate(a.date, lang)}
-                </p>
-                <p className="font-homeDisplay text-base leading-snug text-homeInk">{a.title[lang]}</p>
-              </div>
-            </Link>
-          ))}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-1">
+            {rest.map((a) => (
+              <Link
+                key={a.slug}
+                data-reveal
+                href={`/news/${a.slug}`}
+                className="group flex gap-4 overflow-hidden rounded-3xl bg-homeCard p-4 transition-transform duration-300 hover:-translate-y-1.5"
+              >
+                <div className="relative aspect-[3/4] w-24 flex-none overflow-hidden rounded-xl sm:w-28">
+                  {a.image ? (
+                    <Image
+                      src={a.image}
+                      alt=""
+                      fill
+                      sizes="8rem"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : null}
+                </div>
+                <div className="flex flex-col justify-center gap-1.5 py-1">
+                  <p className="text-[11px] font-extrabold uppercase tracking-[0.04em] text-homeTerracotta">
+                    {a.category[lang]} · {formatDate(a.date, lang)}
+                  </p>
+                  <p className="font-homeDisplay text-base leading-snug text-homeInk">{a.title[lang]}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

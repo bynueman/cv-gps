@@ -50,27 +50,18 @@ const id = {
     heroBadgeTekoLabel: "Racikan Putri Teko",
   },
   /** "About" bento grid — 7-card layout (Claude Design homepage import) */
+  /** Simple 2-col About layout (text + fact panel) — kept deliberately
+   *  plainer than the rest of the redesigned homepage, by request. */
   intro: {
-    kicker: "Tentang Perusahaan",
-    title: "Diproduksi dengan Bangga di Sleman, Yogyakarta",
-    card1: {
-      title: "Berbasis di Sleman, Yogyakarta",
-      desc: "Fasilitas produksi kami berdiri di jantung Yogyakarta, dekat dengan sumber bahan baku lokal terbaik.",
-    },
-    card2: {
-      title: "Produksi Pangan Sepenuh Hati",
-      desc: "Setiap batch diproses dengan standar higienis untuk menjaga rasa dan kualitas.",
-    },
-    card3: {
-      title: "Bahan Baku Lokal",
-      desc: "Bekerja sama dengan petani dan pemasok lokal Yogyakarta.",
-    },
-    card4Value: "2",
-    card4Label: "Keluarga Produk",
-    card5: { title: "Kuicip", desc: "Keripik singkong renyah, 8 varian rasa." },
-    card6: { title: "Putri Teko", desc: "Racikan minuman herbal tradisional." },
-    card7Title: "Terbuka untuk kolaborasi & kemitraan baru",
-    card7Cta: "Hubungi kami",
+    kicker: "Tentang Kami",
+    title: "Perusahaan pangan dari Yogyakarta dengan dua dunia rasa.",
+    body: "CV Gama Putra Santosa adalah perusahaan produksi pangan yang berbasis di Sleman, DI Yogyakarta. Kami percaya bahan lokal — singkong dari kebun sekitar dan rempah warisan Nusantara — layak tampil dalam produk modern yang dikemas serius dan siap tumbuh ke pasar yang lebih luas.",
+    facts: [
+      { label: "Basis Produksi", value: "Sleman, DI Yogyakarta" },
+      { label: "Fokus", value: "Camilan & minuman tradisional" },
+      { label: "Keluarga Produk", value: "Kuicip · Putri Teko" },
+      { label: "Kemitraan", value: "Terbuka untuk kolaborasi" },
+    ],
   },
   featured: {
     kicker: "Produk Unggulan",
@@ -301,26 +292,15 @@ const en: typeof id = {
     heroBadgeTekoLabel: "Putri Teko Blends",
   },
   intro: {
-    kicker: "About the Company",
-    title: "Proudly Produced in Sleman, Yogyakarta",
-    card1: {
-      title: "Based in Sleman, Yogyakarta",
-      desc: "Our production facility sits in the heart of Yogyakarta, close to the region's best local ingredients.",
-    },
-    card2: {
-      title: "Food Production, Done Right",
-      desc: "Every batch is processed to hygienic standards to protect flavor and quality.",
-    },
-    card3: {
-      title: "Local Ingredients",
-      desc: "Working with Yogyakarta farmers and local suppliers.",
-    },
-    card4Value: "2",
-    card4Label: "Product Families",
-    card5: { title: "Kuicip", desc: "Crunchy cassava chips in 8 signature flavors." },
-    card6: { title: "Putri Teko", desc: "Traditional herbal drink blends." },
-    card7Title: "Open to new collaborations & partnerships",
-    card7Cta: "Get in touch",
+    kicker: "About Us",
+    title: "A Yogyakarta food company with two worlds of flavor.",
+    body: "CV Gama Putra Santosa is a food production company based in Sleman, Yogyakarta. We believe local ingredients — cassava from nearby fields and heritage Nusantara spices — deserve modern products, packaged seriously and ready to grow into wider markets.",
+    facts: [
+      { label: "Production Base", value: "Sleman, Yogyakarta" },
+      { label: "Focus", value: "Snacks & traditional beverages" },
+      { label: "Product Families", value: "Kuicip · Putri Teko" },
+      { label: "Partnership", value: "Open for collaboration" },
+    ],
   },
   featured: {
     kicker: "Featured Products",

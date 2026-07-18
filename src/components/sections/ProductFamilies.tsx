@@ -17,10 +17,10 @@ const PT_TAGS: Record<Lang, string[]> = {
 };
 
 /**
- * "Two Brand Worlds" split panels (Claude Design import): a 50/50
- * light-tan / light-sage layout, each side with its wordmark, tagline,
- * two rotated overlapping product photos, and flavor pills — joined by
- * a centered overlapping circular badge.
+ * "Two Brand Worlds" split panels: a 50/50 light-tan / light-sage
+ * layout, each side centered — wordmark, tagline, two rotated
+ * overlapping product photos, flavor pills, CTA — joined by a
+ * centered overlapping circular badge.
  */
 export function ProductFamilies() {
   const { lang, t } = useLang();
@@ -34,7 +34,7 @@ export function ProductFamilies() {
   return (
     <section ref={scope} className="relative grid grid-cols-1 lg:grid-cols-2">
       {/* Kuicip panel */}
-      <div className="relative flex flex-col justify-center gap-5 overflow-hidden bg-homeKuicipPanel px-6 py-24 sm:px-14 lg:py-28">
+      <div className="relative flex flex-col items-center gap-5 overflow-hidden bg-homeKuicipPanel px-6 py-24 text-center sm:px-14 lg:py-28">
         <div
           aria-hidden="true"
           className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-homeGold/50"
@@ -45,7 +45,7 @@ export function ProductFamilies() {
         <p data-reveal className="relative max-w-sm text-base text-homeInk2">
           {t.families.kuicipTagline}
         </p>
-        <div className="relative my-4 flex items-end gap-1">
+        <div className="relative my-4 flex items-end justify-center gap-1">
           {kuicip1?.image ? (
             <div className="relative z-0 h-56 w-44 -rotate-6 overflow-hidden rounded-[18px] drop-shadow-[0_20px_30px_oklch(27%_0.045_50_/_0.25)]">
               <Image src={kuicip1.image} alt={kuicip1.name[lang]} fill sizes="200px" className="object-cover" />
@@ -57,7 +57,7 @@ export function ProductFamilies() {
             </div>
           ) : null}
         </div>
-        <div data-reveal className="relative flex flex-wrap gap-2.5">
+        <div data-reveal className="relative flex flex-wrap justify-center gap-2.5">
           {KUICIP_TAGS[lang].map((tag) => (
             <span
               key={tag}
@@ -70,14 +70,14 @@ export function ProductFamilies() {
         <Link
           data-reveal
           href={brands.kuicip.href}
-          className="relative mt-1 self-start rounded-full bg-homeTerracotta px-[1.625rem] py-3.5 text-sm font-bold text-homeBg transition-colors hover:bg-homeTerracottaDark"
+          className="relative mt-1 rounded-full bg-homeTerracotta px-[1.625rem] py-3.5 text-sm font-bold text-homeBg transition-colors hover:bg-homeTerracottaDark"
         >
           {t.families.kuicipCta}
         </Link>
       </div>
 
       {/* Putri Teko panel */}
-      <div className="relative flex flex-col justify-center gap-5 overflow-hidden bg-homeTekoPanel px-6 py-24 sm:px-14 lg:py-28">
+      <div className="relative flex flex-col items-center gap-5 overflow-hidden bg-homeTekoPanel px-6 py-24 text-center sm:px-14 lg:py-28">
         <div
           aria-hidden="true"
           className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-homeSage/30"
@@ -88,7 +88,7 @@ export function ProductFamilies() {
         <p data-reveal className="relative max-w-sm text-base text-homeInk2">
           {t.families.tekoTagline}
         </p>
-        <div className="relative my-4 flex items-end gap-1">
+        <div className="relative my-4 flex items-end justify-center gap-1">
           {teko1?.image ? (
             <div className="relative z-0 h-52 w-40 -rotate-6 overflow-hidden rounded-[18px] drop-shadow-[0_20px_30px_oklch(27%_0.045_50_/_0.25)]">
               <Image src={teko1.image} alt={teko1.name[lang]} fill sizes="200px" className="object-cover" />
@@ -100,7 +100,7 @@ export function ProductFamilies() {
             </div>
           ) : null}
         </div>
-        <div data-reveal className="relative flex flex-wrap gap-2.5">
+        <div data-reveal className="relative flex flex-wrap justify-center gap-2.5">
           {PT_TAGS[lang].map((tag) => (
             <span key={tag} className="rounded-full bg-homeBg px-4 py-2 text-[13px] font-bold text-homeSage">
               {tag}
@@ -110,7 +110,7 @@ export function ProductFamilies() {
         <Link
           data-reveal
           href={brands["putri-teko"].href}
-          className="relative mt-1 self-start rounded-full bg-homeSage px-[1.625rem] py-3.5 text-sm font-bold text-homeBg transition-colors hover:bg-homeSageDark"
+          className="relative mt-1 rounded-full bg-homeSage px-[1.625rem] py-3.5 text-sm font-bold text-homeBg transition-colors hover:bg-homeSageDark"
         >
           {t.families.tekoCta}
         </Link>

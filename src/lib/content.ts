@@ -771,17 +771,17 @@ export const articles: Article[] = [
     date: "2026-05-27",
     category: { id: "Edukasi", en: "Education" },
     title: {
-      id: "Wedang Uwuh: 'minuman sampah' yang jadi kebanggaan Yogyakarta",
-      en: "Wedang Uwuh: the 'rubbish drink' Yogyakarta is proud of",
+      id: "Wedang Uwuh: rempah sederhana, kebanggaan Yogyakarta",
+      en: "Wedang Uwuh: a humble spice blend, Yogyakarta's pride",
     },
     excerpt: {
-      id: "Di balik namanya yang rendah hati, tersimpan racikan rempah yang kaya cerita — dan kini hadir dalam kemasan Putri Teko.",
+      id: "Di balik nama sederhananya, tersimpan racikan rempah yang kaya cerita — dan kini hadir dalam kemasan Putri Teko.",
       en: "Behind the humble name lies a spice blend rich with story — now part of the Putri Teko family.",
     },
     body: [
       {
-        id: "Uwuh berarti 'sampah dedaunan' dalam bahasa Jawa — nama yang jujur untuk segenggam rempah kering yang tampak acak: serutan kayu secang, daun cengkih, kayu manis, dan jahe.",
-        en: "Uwuh means 'leaf litter' in Javanese — an honest name for a seemingly random handful of dried spices: secang wood shavings, clove leaves, cinnamon, and ginger.",
+        id: "Namanya diambil dari kata 'uwuh' dalam bahasa Jawa, yang berarti dedaunan gugur — menggambarkan tampilan rempah keringnya yang campur aduk: serutan kayu secang, daun cengkih, kayu manis, dan jahe.",
+        en: "The name comes from the Javanese word 'uwuh', meaning fallen leaves — a nod to how the dried spice mix looks: a jumble of secang wood shavings, clove leaves, cinnamon, and ginger.",
       },
       {
         id: "Namun ketika diseduh air panas, racikan itu berubah menjadi minuman merah menyala dengan aroma hangat yang khas. Putri Teko menghadirkannya dalam beberapa bentuk: kotak sachet, toples racikan, hingga kemasan rempah praktis.",
