@@ -7,11 +7,17 @@
  *   /public/images (kept intentionally soft):
  *   – CV Gama Putra Santosa: food production, Sleman, DI Yogyakarta.
  *   – Kuicip: cassava chips line ("Cassa Lite"), 70 gr ziplock, 8
- *     flavors — each with a real studio packshot.
+ *     flavors — each with a real studio packshot. "Cassa Lite" and
+ *     "no added flour" are corroborated by public market research
+ *     (the term is printed on the real packaging photos too).
  *   – Putri Teko: traditional/herbal beverages in four packaging
  *     forms photographed in /public/images/putri-teko:
  *     botol (RTD bottles), kotak (sachet boxes), toples (jars),
- *     kemasan (practical plastic pack).
+ *     kemasan (practical plastic pack). The name references the
+ *     general Javanese custom of brewing warm wedang to welcome
+ *     guests — copy frames this as heritage/inspiration ("a recipe
+ *     familiar in Yogyakarta homes"), not as an affiliation with any
+ *     specific named household, palace, or third-party product.
  * • Blurbs, serving copy, and article stories are EDITABLE copy
  *   written to invite inquiry, not to claim facts.
  *
@@ -55,8 +61,8 @@ export const brands = {
     tag: { id: "Keripik Singkong Modern", en: "Modern Cassava Chips" },
     weight: "70 gr",
     story: {
-      id: "Kuicip mengangkat singkong lokal menjadi camilan modern — dipotong tipis, digoreng renyah, dan hadir dalam ragam rasa yang berani dalam kemasan ziplock 70 gr.",
-      en: "Kuicip turns local cassava into a modern snack — sliced thin, fried crisp, and served in a bold range of flavors in 70 gr ziplock packaging.",
+      id: "Kuicip lahir dari pertanyaan sederhana: bisakah singkong kampung tampil di rak modern tanpa kehilangan kejujurannya? Jawabannya — diiris tipis, digoreng renyah, tanpa campuran tepung — lalu dibumbui delapan rasa, dari yang bersahaja sampai yang berani, dan dikemas ziplock 70 gr supaya gampang dibawa ke mana saja.",
+      en: "Kuicip started with a simple question: can village cassava stand on a modern shelf without losing its honesty? The answer — sliced thin, fried crisp, no added flour — then seasoned across eight flavors, from humble to daring, and sealed in a 70 gr ziplock pack that travels easily.",
     },
     href: "/products/kuicip",
   },
@@ -66,8 +72,8 @@ export const brands = {
     tag: { id: "Minuman Tradisional & Herbal", en: "Traditional & Herbal Beverages" },
     weight: null,
     story: {
-      id: "Putri Teko menghadirkan kembali minuman tradisional Jawa — dari wedang jahe hingga wedang uwuh — dalam empat bentuk kemasan: botol siap minum, kotak sachet, toples racikan, dan kemasan rempah praktis.",
-      en: "Putri Teko brings back traditional Javanese beverages — from ginger wedang to Wedang Uwuh — in four packaging forms: ready-to-drink bottles, sachet boxes, jars, and practical spice packs.",
+      id: "Nama Putri Teko kami pinjam dari kebiasaan lama: menyeduh wedang hangat untuk menjamu tamu yang datang. Jahe, sereh, dan gula Jawa kami racik jadi wedang jahe, kunir asam, sampai wedang uwuh — lalu dikemas dalam botol siap minum, kotak sachet, toples, dan kemasan praktis, supaya kehangatan itu bisa dinikmati kapan saja, bukan hanya saat ada tamu.",
+      en: "We borrowed the name Putri Teko from an old habit: brewing a warm wedang to welcome guests. Ginger, lemongrass, and palm sugar become ginger wedang, turmeric-tamarind, and Wedang Uwuh — now packaged in ready-to-drink bottles, sachet boxes, jars, and practical packs, so that warmth isn't reserved only for when guests arrive.",
     },
     href: "/products/putri-teko",
   },

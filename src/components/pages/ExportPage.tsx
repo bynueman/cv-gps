@@ -25,12 +25,12 @@ export function ExportPage() {
 
       <section ref={scope} className="pb-20 lg:pb-28">
         <div className="container-page">
-          <div className="grid gap-4 sm:grid-cols-2 lg:gap-5">
+          <div className="grid gap-5 sm:grid-cols-2 lg:gap-6">
             {t.exportSection.blocks.map((block, i) => (
               <article
                 key={block.title}
                 data-reveal
-                className="rounded-2xl border border-espresso-900/10 bg-cream-50 p-6 transition-shadow duration-300 hover:shadow-card sm:p-7"
+                className="rounded-2xl border border-espresso-900/10 bg-cream-50 p-6 transition-colors duration-300 hover:border-espresso-900/25 sm:p-7"
               >
                 <span className="font-display text-sm font-semibold text-gold-600">
                   {String(i + 1).padStart(2, "0")}

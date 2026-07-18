@@ -2,127 +2,123 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useLang } from "@/lib/i18n";
+import { useLang, type Lang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
-import { brands, groupShots, logos } from "@/lib/content";
+import { brands, getProduct } from "@/lib/content";
+
+/** Decorative flavor-name pills — proper nouns, not linked product cards. */
+const KUICIP_TAGS: Record<Lang, string[]> = {
+  id: ["Original", "Balado", "Rendang", "Spicy Mala", "Chili Lime"],
+  en: ["Original", "Balado", "Rendang", "Spicy Mala", "Chili Lime"],
+};
+const PT_TAGS: Record<Lang, string[]> = {
+  id: ["Beras Kencur", "Wedang Uwuh", "Jahe Merah", "Gula Asam"],
+  en: ["Beras Kencur", "Wedang Uwuh", "Red Ginger", "Gula Asam"],
+};
 
 /**
- * Split storytelling: two worlds under one company. Kuicip panel is
- * bright and energetic; Putri Teko panel is dark and warm. Each panel
- * carries its real brand logo and the transparent group cutout of its
- * actual products, and leads to its category page.
+ * "Two Brand Worlds" split panels (Claude Design import): a 50/50
+ * light-tan / light-sage layout, each side with its wordmark, tagline,
+ * two rotated overlapping product photos, and flavor pills — joined by
+ * a centered overlapping circular badge.
  */
 export function ProductFamilies() {
   const { lang, t } = useLang();
   const scope = useReveal<HTMLElement>([lang]);
 
+  const kuicip1 = getProduct("kuicip", "seaweed");
+  const kuicip2 = getProduct("kuicip", "truffle");
+  const teko1 = getProduct("putri-teko", "kunir-asam");
+  const teko2 = getProduct("putri-teko", "jahe-serai-toples");
+
   return (
-    <section ref={scope} className="py-4 pb-20 lg:pb-28">
-      <div className="container-page">
-        <div className="max-w-2xl">
-          <p data-reveal className="kicker">
-            {t.families.kicker}
-          </p>
-          <h2
-            data-reveal
-            className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl"
-          >
-            {t.families.title}
-          </h2>
+    <section ref={scope} className="relative grid grid-cols-1 lg:grid-cols-2">
+      {/* Kuicip panel */}
+      <div className="relative flex flex-col justify-center gap-5 overflow-hidden bg-homeKuicipPanel px-6 py-24 sm:px-14 lg:py-28">
+        <div
+          aria-hidden="true"
+          className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-homeGold/50"
+        />
+        <p data-reveal className="relative font-homeDisplay text-5xl text-homeTerracotta">
+          {brands.kuicip.name}
+        </p>
+        <p data-reveal className="relative max-w-sm text-base text-homeInk2">
+          {t.families.kuicipTagline}
+        </p>
+        <div className="relative my-4 flex items-end gap-1">
+          {kuicip1?.image ? (
+            <div className="relative z-0 h-56 w-44 -rotate-6 overflow-hidden rounded-[18px] drop-shadow-[0_20px_30px_oklch(27%_0.045_50_/_0.25)]">
+              <Image src={kuicip1.image} alt={kuicip1.name[lang]} fill sizes="200px" className="object-cover" />
+            </div>
+          ) : null}
+          {kuicip2?.image ? (
+            <div className="relative z-10 -ml-10 h-48 w-40 rotate-6 overflow-hidden rounded-[18px] drop-shadow-[0_20px_30px_oklch(27%_0.045_50_/_0.25)]">
+              <Image src={kuicip2.image} alt={kuicip2.name[lang]} fill sizes="200px" className="object-cover" />
+            </div>
+          ) : null}
         </div>
-
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {/* Kuicip world */}
-          <Link
-            data-reveal
-            href={brands.kuicip.href}
-            className="group relative flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-gold-400/90 p-8 text-espresso-950 shadow-card transition-shadow hover:shadow-lift sm:p-10"
-          >
+        <div data-reveal className="relative flex flex-wrap gap-2.5">
+          {KUICIP_TAGS[lang].map((tag) => (
             <span
-              className="absolute -right-14 -top-14 h-48 w-48 rounded-full bg-cream-50/30 transition-transform duration-500 group-hover:scale-125"
-              aria-hidden="true"
-            />
-            <div className="relative">
-              <Image
-                src={logos.kuicip}
-                alt={`Logo ${brands.kuicip.name}`}
-                width={2560}
-                height={1440}
-                className="h-12 w-auto drop-shadow-sm sm:h-14"
-              />
-              <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-espresso-800/80">
-                {brands.kuicip.tag[lang]}
-              </p>
-              <p className="mt-5 font-display text-xl font-semibold">{t.families.kuicip.lead}</p>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-espresso-800">
-                {t.families.kuicip.body}
-              </p>
-            </div>
-            <div className="relative mt-8 flex items-end justify-between gap-6">
-              <span className="btn-dark !px-5 !py-2.5">{t.families.kuicip.cta} →</span>
-              <div className="w-44 drop-shadow-md transition-transform duration-300 group-hover:-translate-y-2 sm:w-52">
-                <Image
-                  src={groupShots.kuicip}
-                  alt="Kuicip Seaweed, Original, dan Balado"
-                  width={1080}
-                  height={1350}
-                  className="h-auto w-full"
-                />
-              </div>
-            </div>
-          </Link>
-
-          {/* Putri Teko world */}
-          <Link
-            data-reveal
-            href={brands["putri-teko"].href}
-            className="group relative flex min-h-[26rem] flex-col justify-between overflow-hidden rounded-3xl bg-espresso-900 p-8 text-cream-100 shadow-card transition-shadow hover:shadow-lift sm:p-10"
-          >
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 280 120"
-              fill="none"
-              className="absolute -right-10 top-6 w-64 opacity-25 transition-transform duration-500 group-hover:translate-x-2"
+              key={tag}
+              className="rounded-full bg-homeBg px-4 py-2 text-[13px] font-bold text-homeTerracotta"
             >
-              <path d="M8 112 C60 30 200 20 272 64" stroke="#C06B2D" strokeWidth="3" strokeLinecap="round" strokeDasharray="1 12" />
-            </svg>
-            <div className="relative flex items-start gap-5">
-              <Image
-                src={logos["putri-teko"]}
-                alt={`Logo ${brands["putri-teko"].name}`}
-                width={1440}
-                height={2560}
-                className="h-24 w-auto drop-shadow-sm sm:h-28"
-              />
-              <div>
-                <h3 className="font-display text-4xl font-bold tracking-tight text-turmeric">
-                  {brands["putri-teko"].name}
-                </h3>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-cream-200/70">
-                  {brands["putri-teko"].tag[lang]}
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <p className="mt-5 font-display text-xl font-semibold">{t.families.teko.lead}</p>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-cream-200/85">
-                {t.families.teko.body}
-              </p>
-            </div>
-            <div className="relative mt-8 flex items-end justify-between gap-6">
-              <span className="btn-primary !px-5 !py-2.5">{t.families.teko.cta} →</span>
-              <div className="w-40 drop-shadow-md transition-transform duration-300 group-hover:-translate-y-2 sm:w-48">
-                <Image
-                  src={groupShots["putri-teko"]}
-                  alt="Botol Putri Teko Beras Kencur, Gula Asam, dan Kunir Asam"
-                  width={1080}
-                  height={1350}
-                  className="h-auto w-full"
-                />
-              </div>
-            </div>
-          </Link>
+              {tag}
+            </span>
+          ))}
         </div>
+        <Link
+          data-reveal
+          href={brands.kuicip.href}
+          className="relative mt-1 self-start rounded-full bg-homeTerracotta px-[1.625rem] py-3.5 text-sm font-bold text-homeBg transition-colors hover:bg-homeTerracottaDark"
+        >
+          {t.families.kuicipCta}
+        </Link>
+      </div>
+
+      {/* Putri Teko panel */}
+      <div className="relative flex flex-col justify-center gap-5 overflow-hidden bg-homeTekoPanel px-6 py-24 sm:px-14 lg:py-28">
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-homeSage/30"
+        />
+        <p data-reveal className="relative font-homeDisplay text-5xl text-homeSage">
+          {brands["putri-teko"].name}
+        </p>
+        <p data-reveal className="relative max-w-sm text-base text-homeInk2">
+          {t.families.tekoTagline}
+        </p>
+        <div className="relative my-4 flex items-end gap-1">
+          {teko1?.image ? (
+            <div className="relative z-0 h-52 w-40 -rotate-6 overflow-hidden rounded-[18px] drop-shadow-[0_20px_30px_oklch(27%_0.045_50_/_0.25)]">
+              <Image src={teko1.image} alt={teko1.name[lang]} fill sizes="200px" className="object-cover" />
+            </div>
+          ) : null}
+          {teko2?.image ? (
+            <div className="relative z-10 -ml-10 h-48 w-40 rotate-6 overflow-hidden rounded-[18px] drop-shadow-[0_20px_30px_oklch(27%_0.045_50_/_0.25)]">
+              <Image src={teko2.image} alt={teko2.name[lang]} fill sizes="200px" className="object-cover" />
+            </div>
+          ) : null}
+        </div>
+        <div data-reveal className="relative flex flex-wrap gap-2.5">
+          {PT_TAGS[lang].map((tag) => (
+            <span key={tag} className="rounded-full bg-homeBg px-4 py-2 text-[13px] font-bold text-homeSage">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <Link
+          data-reveal
+          href={brands["putri-teko"].href}
+          className="relative mt-1 self-start rounded-full bg-homeSage px-[1.625rem] py-3.5 text-sm font-bold text-homeBg transition-colors hover:bg-homeSageDark"
+        >
+          {t.families.tekoCta}
+        </Link>
+      </div>
+
+      {/* centered overlapping badge */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 hidden h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-homeInk p-4 text-center text-[13px] font-bold text-homeBg shadow-[0_20px_40px_-14px_oklch(27%_0.045_50_/_0.5)] lg:flex">
+        {t.families.center}
       </div>
     </section>
   );

@@ -7,7 +7,6 @@ import { brands, relatedProducts, type Product } from "@/lib/content";
 import { ProductPackshot } from "@/components/ProductPackshot";
 import { ProductCard } from "@/components/ProductCard";
 import { ExportCTA } from "@/components/ExportCTA";
-import { MotionBackdrop } from "@/components/MotionBackdrop";
 
 /**
  * Reusable product detail template. Kuicip pages lean on flavor
@@ -41,7 +40,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   product={product}
                   lang={lang}
                   rounded="rounded-3xl"
-                  className="!aspect-[3/4] shadow-card"
+                  className="!aspect-[3/4]"
                 />
                 {!isKuicip && product.packaging ? (
                   <span className="absolute left-4 top-4 rounded-full bg-cream-50/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-espresso-800 backdrop-blur-sm">
@@ -57,10 +56,9 @@ export function ProductDetail({ product }: { product: Product }) {
             ) : (
               /* fallback: SVG placeholder on a tinted plane */
               <div
-                className="relative flex items-end justify-center overflow-hidden rounded-3xl pb-0 pt-10 shadow-card"
+                className="relative flex items-end justify-center overflow-hidden rounded-3xl pb-0 pt-10"
                 style={{ backgroundColor: `${product.color}26` }}
               >
-                <MotionBackdrop variant={isKuicip ? "kuicip" : "teko"} />
                 <div
                   className="absolute -left-10 -top-10 h-44 w-44 rounded-full opacity-20"
                   style={{ backgroundColor: product.color }}
@@ -156,7 +154,7 @@ export function ProductDetail({ product }: { product: Product }) {
             <h2 data-reveal className="font-display text-2xl font-semibold">
               {t.productDetail.relatedTitle}
             </h2>
-            <ul className="mt-7 grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-5">
+            <ul className="mt-7 grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-6">
               {related.map((p) => (
                 <li key={p.slug} data-reveal>
                   <ProductCard product={p} />

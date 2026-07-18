@@ -20,6 +20,14 @@ body {
   @apply bg-gold-400/60 text-espresso-950;
 }
 
+/* Keyboard focus: visible everywhere links/cards are interactive,
+   invisible for mouse/touch (matches the calmer, less-chrome direction —
+   no permanent outline, but never invisible for keyboard users). */
+a:focus-visible,
+button:focus-visible {
+  @apply outline-none ring-2 ring-gold-500 ring-offset-2 ring-offset-cream-100;
+}
+
 /* Reveal targets start visible; GSAP hides + animates them only when
    motion is allowed, so no-JS and reduced-motion users see everything. */
 [data-reveal] {
@@ -34,7 +42,7 @@ body {
     @apply text-xs font-semibold uppercase tracking-[0.22em] text-gold-600;
   }
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100;
   }
   .btn-primary {
     @apply btn bg-gold-500 text-espresso-950 hover:bg-gold-400;
@@ -43,6 +51,6 @@ body {
     @apply btn border border-espresso-900/25 text-espresso-900 hover:border-espresso-900 hover:bg-espresso-900 hover:text-cream-100;
   }
   .btn-dark {
-    @apply btn bg-espresso-900 text-cream-100 hover:bg-espresso-800;
+    @apply btn bg-espresso-900 text-cream-100 hover:bg-espresso-800 focus-visible:ring-offset-espresso-900;
   }
 }

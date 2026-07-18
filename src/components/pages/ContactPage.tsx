@@ -28,7 +28,7 @@ export function ContactPage() {
           </div>
 
           <div className="space-y-6 lg:col-span-5">
-            <div data-reveal className="rounded-3xl border border-espresso-900/10 bg-cream-50 p-8 shadow-card">
+            <div data-reveal className="rounded-3xl border border-espresso-900/10 bg-cream-50 p-8">
               <h2 className="font-display text-xl font-semibold">{company.name}</h2>
               <dl className="mt-6 space-y-5 text-sm">
                 <div>

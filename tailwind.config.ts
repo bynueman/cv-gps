@@ -1,5 +1,24 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * Tailwind's `text-x/50` opacity-modifier only works on colors it can
+ * decompose. A raw `"oklch(64% 0.19 38)"` string is opaque to that
+ * mechanism — `text-homeBg/60` silently fails to generate any rule at
+ * all, so the class does nothing and the color falls back to
+ * whatever's inherited. oklch() itself supports a slash-alpha channel
+ * (`oklch(L C H / A)`), so wrapping each channel string in the
+ * standard Tailwind opacity-value function fixes every `/NN` usage.
+ */
+function oklchColor(channels: string): string {
+  // Tailwind's shipped Config type doesn't model the opacity-value
+  // function form, even though the JIT engine accepts (and requires)
+  // it for opacity-modifier support — see tailwindlabs/tailwindcss#9151.
+  return (({ opacityValue }: { opacityValue?: string }) =>
+    opacityValue === undefined
+      ? `oklch(${channels})`
+      : `oklch(${channels} / ${opacityValue})`) as unknown as string;
+}
+
 const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
@@ -34,10 +53,30 @@ const config: Config = {
         palmsugar: "#5E3B1E",
         turmeric: "#D98E23",
         herbal: "#5F7A3D",
+
+        // Homepage redesign only (Claude Design import) — additive palette,
+        // scoped to src/components/sections/*.tsx. Do not use elsewhere;
+        // every other page keeps the cream/espresso/gold palette above.
+        homeBg: oklchColor("97% 0.025 85"),
+        homeCard: oklchColor("96% 0.02 85"),
+        homePanel: oklchColor("94% 0.035 80"),
+        homeInk: oklchColor("27% 0.045 50"),
+        homeInk2: oklchColor("45% 0.05 50"),
+        homeTerracotta: oklchColor("64% 0.19 38"),
+        homeTerracottaDark: oklchColor("56% 0.19 38"),
+        homeGold: oklchColor("78% 0.17 92"),
+        homeGoldLight: oklchColor("84% 0.17 92"),
+        homeSage: oklchColor("56% 0.07 135"),
+        homeSageDark: oklchColor("48% 0.07 135"),
+        homeKuicipPanel: oklchColor("93% 0.05 55"),
+        homeTekoPanel: oklchColor("92% 0.03 100"),
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        // Homepage redesign only — see colors.home* above.
+        homeDisplay: ["var(--font-home-display)", "Georgia", "serif"],
+        homeSans: ["var(--font-home-sans)", "system-ui", "sans-serif"],
       },
       maxWidth: {
         page: "76rem",

@@ -74,18 +74,18 @@ export function MotionBackdrop({
     >
       {variant === "kuicip" ? (
         <>
-          {/* chip-like ovals */}
-          <svg data-drift="1.4" data-float className="absolute left-[6%] top-[12%] w-14 opacity-40" viewBox="0 0 60 52">
+          {/* chip-like ovals — quiet accent, not a competing shape */}
+          <svg data-drift="1.4" data-float className="absolute left-[6%] top-[12%] w-14 opacity-25" viewBox="0 0 60 52">
             <path d="M6 30 C2 16 14 4 30 4 c16 0 28 10 24 26 c-3 13 -14 20 -26 18 C15 46 9 40 6 30 Z" fill="#F2B234" />
           </svg>
-          <svg data-drift="0.8" data-float className="absolute right-[8%] top-[22%] w-10 opacity-30" viewBox="0 0 60 52">
+          <svg data-drift="0.8" data-float className="absolute right-[8%] top-[22%] w-10 opacity-20" viewBox="0 0 60 52">
             <path d="M6 30 C2 16 14 4 30 4 c16 0 28 10 24 26 c-3 13 -14 20 -26 18 C15 46 9 40 6 30 Z" fill="#C05A2E" />
           </svg>
-          <svg data-drift="1.1" className="absolute bottom-[18%] left-[14%] w-8 opacity-25" viewBox="0 0 60 52">
+          <svg data-drift="1.1" className="absolute bottom-[18%] left-[14%] w-8 opacity-15" viewBox="0 0 60 52">
             <path d="M6 30 C2 16 14 4 30 4 c16 0 28 10 24 26 c-3 13 -14 20 -26 18 C15 46 9 40 6 30 Z" fill="#3E8E52" />
           </svg>
           {/* dotted crunch arc */}
-          <svg data-drift="0.5" className="absolute -right-10 bottom-[8%] w-72 opacity-30" viewBox="0 0 280 120" fill="none">
+          <svg data-drift="0.5" className="absolute -right-10 bottom-[8%] w-72 opacity-20" viewBox="0 0 280 120" fill="none">
             <path d="M8 112 C60 30 200 20 272 64" stroke="#C27F0A" strokeWidth="3" strokeLinecap="round" strokeDasharray="1 14" />
           </svg>
         </>
@@ -93,18 +93,18 @@ export function MotionBackdrop({
 
       {variant === "teko" ? (
         <>
-          {/* steam curves */}
-          <svg data-drift="1.2" data-float className="absolute left-[8%] top-[10%] w-16 opacity-35" viewBox="0 0 60 100" fill="none">
+          {/* steam curves — quiet accent, not a competing shape */}
+          <svg data-drift="1.2" data-float className="absolute left-[8%] top-[10%] w-16 opacity-25" viewBox="0 0 60 100" fill="none">
             <path d="M30 96 C18 74 42 62 30 40 C22 24 36 14 32 2" stroke="#C06B2D" strokeWidth="3" strokeLinecap="round" />
           </svg>
           {/* spice arc */}
-          <svg data-drift="0.6" className="absolute -left-8 bottom-[14%] w-64 opacity-30" viewBox="0 0 280 120" fill="none">
+          <svg data-drift="0.6" className="absolute -left-8 bottom-[14%] w-64 opacity-20" viewBox="0 0 280 120" fill="none">
             <path d="M8 64 C90 8 210 26 272 100" stroke="#8A4A26" strokeWidth="3" strokeLinecap="round" strokeDasharray="1 14" />
           </svg>
           {/* ingredient dots + leaf */}
-          <span data-drift="1.5" data-float className="absolute right-[12%] top-[18%] h-3 w-3 rounded-full bg-turmeric opacity-40" />
-          <span data-drift="0.9" data-float className="absolute right-[22%] top-[34%] h-2 w-2 rounded-full bg-ginger opacity-40" />
-          <svg data-drift="1.0" data-float className="absolute bottom-[26%] right-[9%] w-9 opacity-35" viewBox="0 0 40 24">
+          <span data-drift="1.5" data-float className="absolute right-[12%] top-[18%] h-3 w-3 rounded-full bg-turmeric opacity-30" />
+          <span data-drift="0.9" data-float className="absolute right-[22%] top-[34%] h-2 w-2 rounded-full bg-ginger opacity-30" />
+          <svg data-drift="1.0" data-float className="absolute bottom-[26%] right-[9%] w-9 opacity-25" viewBox="0 0 40 24">
             <path d="M2 20 Q14 -6 38 4 Q26 24 2 20 Z" fill="#5F7A3D" />
           </svg>
         </>
@@ -119,8 +119,8 @@ export function MotionBackdrop({
           <svg data-drift="1.0" className="absolute -right-12 bottom-[12%] w-80 opacity-[0.14]" viewBox="0 0 320 120" fill="none">
             <path d="M6 24 C110 110 230 96 314 30" stroke="#8A4A26" strokeWidth="8" strokeLinecap="round" />
           </svg>
-          <span data-drift="1.4" data-float className="absolute left-[18%] top-[42%] h-2.5 w-2.5 rounded-full bg-gold-400 opacity-30" />
-          <span data-drift="0.8" data-float className="absolute right-[24%] top-[24%] h-2 w-2 rounded-full bg-ginger opacity-25" />
+          <span data-drift="1.4" data-float className="absolute left-[18%] top-[42%] h-2.5 w-2.5 rounded-full bg-gold-400 opacity-20" />
+          <span data-drift="0.8" data-float className="absolute right-[24%] top-[24%] h-2 w-2 rounded-full bg-ginger opacity-[0.18]" />
         </>
       ) : null}
     </div>
