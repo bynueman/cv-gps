@@ -35,20 +35,18 @@ export function ContactPage() {
                   <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-espresso-500">
                     {info.addressLabel}
                   </dt>
-                  <dd className="mt-1 leading-relaxed text-espresso-700">
-                    {company.address}
-                    <span className="mt-1 block text-xs italic text-espresso-500">
-                      {info.addressNote}
-                    </span>
-                  </dd>
+                  <dd className="mt-1 leading-relaxed text-espresso-700">{company.address}</dd>
                 </div>
                 <div>
                   <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-espresso-500">
                     {info.emailLabel}
                   </dt>
-                  <dd className="mt-1">
-                    <a href={`mailto:${company.email}`} className="text-espresso-700 hover:text-gold-700">
+                  <dd className="mt-1 space-y-0.5">
+                    <a href={`mailto:${company.email}`} className="block text-espresso-700 hover:text-gold-700">
                       {company.email}
+                    </a>
+                    <a href={`mailto:${company.emailAlt}`} className="block text-espresso-700 hover:text-gold-700">
+                      {company.emailAlt}
                     </a>
                   </dd>
                 </div>
@@ -66,7 +64,7 @@ export function ContactPage() {
                   <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-espresso-500">
                     {info.hoursLabel}
                   </dt>
-                  <dd className="mt-1 text-espresso-700">{info.hours}</dd>
+                  <dd className="mt-1 text-espresso-700">{company.hours[lang]}</dd>
                 </div>
               </dl>
               <a href={company.whatsappHref} className="btn-primary mt-8 w-full">
@@ -74,13 +72,20 @@ export function ContactPage() {
               </a>
             </div>
 
-            {/* Map slot — swap for an embedded map when the final
-                location is confirmed */}
             <div
               data-reveal
-              className="flex aspect-[4/3] items-center justify-center rounded-3xl border border-dashed border-espresso-900/25 bg-cream-200/50 p-6 text-center"
+              className="overflow-hidden rounded-3xl border border-espresso-900/10"
             >
-              <p className="text-sm font-medium text-espresso-500">{info.mapNote}</p>
+              <iframe
+                src={company.mapEmbedUrl}
+                width="100%"
+                height="320"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title={`${t.contactSection.mapTitle} ${company.name}`}
+                className="block aspect-[4/3] w-full"
+              />
             </div>
           </div>
         </div>

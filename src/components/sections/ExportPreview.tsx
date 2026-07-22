@@ -21,7 +21,7 @@ export function ExportPreview() {
           <p data-reveal className="text-[13px] font-extrabold uppercase tracking-[0.08em] text-homeTerracotta">
             {t.homeExport.kicker}
           </p>
-          <h2 data-reveal className="mt-3 max-w-lg font-homeDisplay text-[42px] leading-tight text-homeInk">
+          <h2 data-reveal className="mt-3 max-w-lg font-display text-[42px] leading-tight text-homeInk">
             {t.homeExport.title}
           </h2>
           <p data-reveal className="mt-4 max-w-lg text-base leading-relaxed text-homeInk2">
@@ -30,7 +30,7 @@ export function ExportPreview() {
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
             {t.homeExport.cards.map((card) => (
               <div key={card.title} data-reveal className="flex flex-col gap-2 rounded-[22px] bg-homePanel p-6">
-                <p className="font-homeDisplay text-[19px] text-homeInk">{card.title}</p>
+                <p className="font-display text-[19px] text-homeInk">{card.title}</p>
                 <p className="text-[13px] leading-relaxed text-homeInk2">{card.desc}</p>
               </div>
             ))}
@@ -41,7 +41,7 @@ export function ExportPreview() {
           data-reveal
           className="flex flex-col gap-5 rounded-[28px] bg-homeInk p-9 shadow-[0_30px_60px_-24px_oklch(27%_0.045_50_/_0.45)]"
         >
-          <p className="font-homeDisplay text-2xl text-homeBg">{t.homeExport.panelTitle}</p>
+          <p className="font-display text-2xl text-homeBg">{t.homeExport.panelTitle}</p>
           <p className="text-sm leading-relaxed text-homeBg/80">{t.homeExport.panelDesc}</p>
           <div className="mt-1 flex flex-col gap-2.5">
             {[t.homeExport.fieldName, t.homeExport.fieldEmail, t.homeExport.fieldCountry].map((field) => (

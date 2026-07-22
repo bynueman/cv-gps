@@ -20,7 +20,7 @@ export function CompanyIntro() {
           <p data-reveal className="text-[13px] font-extrabold uppercase tracking-[0.08em] text-homeTerracotta">
             {t.intro.kicker}
           </p>
-          <h2 data-reveal className="mt-4 font-homeDisplay text-3xl leading-tight text-homeInk sm:text-4xl">
+          <h2 data-reveal className="mt-4 font-display text-3xl leading-tight text-homeInk sm:text-4xl">
             {t.intro.title}
           </h2>
           <p data-reveal className="mt-6 max-w-2xl text-base leading-relaxed text-homeInk2 sm:text-lg">

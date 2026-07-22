@@ -45,7 +45,7 @@ export function SachetSVG({
         x="100"
         y="104"
         textAnchor="middle"
-        fontFamily="var(--font-display), Georgia, serif"
+        fontFamily="var(--font-display), Arial Black, sans-serif"
         fontWeight="600"
         fontSize="19"
         fill="#2C1F14"
@@ -57,7 +57,7 @@ export function SachetSVG({
           x="100"
           y="120"
           textAnchor="middle"
-          fontFamily="var(--font-sans), system-ui"
+          fontFamily="var(--font-sans), cursive"
           fontWeight="600"
           fontSize="10"
           fill={color}

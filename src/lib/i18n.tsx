@@ -38,10 +38,11 @@ const id = {
     kotak: "Kotak Sachet",
     toples: "Toples",
     kemasan: "Kemasan",
+    besek: "Besek",
   },
   hero: {
-    kicker: "CV Gama Putra Santosa · Sleman, Yogyakarta",
-    title: "Dari Dapur Sleman ke Meja Indonesia",
+    kicker: "Gama Putra Santosa · Sleman, Yogyakarta",
+    title: "Berpikir Global, Bertindak Lokal",
     subtitle:
       "Kuicip yang renyah dan Putri Teko yang menghangatkan — dua dunia rasa dari CV Gama Putra Santosa, diproduksi dengan bangga di Yogyakarta.",
     ctaProducts: "Jelajahi Produk",
@@ -164,6 +165,7 @@ const id = {
     ctaTitle: "Punya pertanyaan atau peluang kerja sama?",
     ctaBody: "Satu pesan singkat sudah cukup untuk memulai.",
     ctaButton: "Hubungi Kami",
+    mapTitle: "Peta lokasi",
     form: {
       name: "Nama",
       namePlaceholder: "Nama lengkap Anda",
@@ -178,12 +180,9 @@ const id = {
     },
     info: {
       addressLabel: "Alamat",
-      addressNote: "Alamat placeholder — perbarui dengan info bisnis final.",
       emailLabel: "Email",
       whatsappLabel: "WhatsApp",
       hoursLabel: "Jam Operasional",
-      hours: "Senin – Sabtu, 08.00 – 17.00 WIB",
-      mapNote: "Slot peta — sematkan lokasi final di sini.",
     },
   },
   productsPage: {
@@ -205,12 +204,12 @@ const id = {
     kicker: "Keluarga Produk · Putri Teko",
     title: "Minuman tradisional, diracik untuk hari ini.",
     subtitle:
-      "Dari jamu botol siap minum hingga racikan wedang uwuh — rempah asli hadir dalam empat bentuk kemasan: botol, kotak sachet, toples, dan kemasan praktis.",
+      "Dari jamu botol siap minum hingga racikan wedang uwuh — rempah asli hadir dalam lima bentuk kemasan: botol, kotak sachet, toples, kemasan praktis, dan besek anyaman untuk oleh-oleh.",
     rtdTitle: "Botol · Siap Minum",
     rtdBody: "Jamu klasik yang diseduh di dapur kami — tinggal buka botolnya, nikmat hangat maupun dingin.",
     brewTitle: "Seduh Sendiri",
     brewBody:
-      "Tiga bentuk kemasan untuk yang menikmati ritual menyeduh: kotak sachet praktis, toples racikan untuk stok dapur, dan kemasan rempah lengkap.",
+      "Empat bentuk kemasan untuk yang menikmati ritual menyeduh: kotak sachet praktis, toples racikan untuk stok dapur, kemasan rempah lengkap, dan besek anyaman untuk oleh-oleh.",
     packs: {
       kotak: {
         title: "Kotak Sachet",
@@ -223,6 +222,10 @@ const id = {
       kemasan: {
         title: "Kemasan Praktis",
         body: "Rempah utuh lengkap dengan gula batu dalam satu kemasan.",
+      },
+      besek: {
+        title: "Besek · Oleh-Oleh Khas",
+        body: "Racikan yang sama, dikemas dalam besek anyaman bambu — bentuk oleh-oleh yang unik dan berkesan.",
       },
     },
     servingLabel: "Penyajian",
@@ -280,10 +283,11 @@ const en: typeof id = {
     kotak: "Sachet Box",
     toples: "Jar",
     kemasan: "Pack",
+    besek: "Gift Basket",
   },
   hero: {
-    kicker: "CV Gama Putra Santosa · Sleman, Yogyakarta",
-    title: "From Sleman Kitchens to Tables Across Indonesia",
+    kicker: "Gama Putra Santosa · Sleman, Yogyakarta",
+    title: "Think Global, Act Local",
     subtitle:
       "The crunch of Kuicip and the warmth of Putri Teko — two flavor worlds from CV Gama Putra Santosa, proudly produced in Yogyakarta.",
     ctaProducts: "Explore Products",
@@ -400,6 +404,7 @@ const en: typeof id = {
     ctaTitle: "Have a question or a partnership opportunity?",
     ctaBody: "One short message is enough to get started.",
     ctaButton: "Contact Us",
+    mapTitle: "Location map",
     form: {
       name: "Name",
       namePlaceholder: "Your full name",
@@ -414,12 +419,9 @@ const en: typeof id = {
     },
     info: {
       addressLabel: "Address",
-      addressNote: "Placeholder address — update with final business info.",
       emailLabel: "Email",
       whatsappLabel: "WhatsApp",
       hoursLabel: "Business Hours",
-      hours: "Monday – Saturday, 08.00 – 17.00 WIB",
-      mapNote: "Map slot — embed the final location here.",
     },
   },
   productsPage: {
@@ -441,12 +443,12 @@ const en: typeof id = {
     kicker: "Product Family · Putri Teko",
     title: "Traditional beverages, crafted for today.",
     subtitle:
-      "From ready-to-drink bottled jamu to Wedang Uwuh blends — real spices in four packaging forms: bottles, sachet boxes, jars, and practical packs.",
+      "From ready-to-drink bottled jamu to Wedang Uwuh blends — real spices in five packaging forms: bottles, sachet boxes, jars, practical packs, and a woven gift basket.",
     rtdTitle: "Bottles · Ready to Drink",
     rtdBody: "Classic jamu brewed in our kitchen — just open the bottle, enjoy warm or chilled.",
     brewTitle: "Brew at Home",
     brewBody:
-      "Three packaging forms for those who savor the brewing ritual: practical sachet boxes, jar blends for the pantry, and complete spice packs.",
+      "Four packaging forms for those who savor the brewing ritual: practical sachet boxes, jar blends for the pantry, complete spice packs, and a woven basket for gifting.",
     packs: {
       kotak: {
         title: "Sachet Boxes",
@@ -459,6 +461,10 @@ const en: typeof id = {
       kemasan: {
         title: "Practical Packs",
         body: "Whole spices complete with rock sugar in one pack.",
+      },
+      besek: {
+        title: "Besek · Signature Souvenir",
+        body: "The same blend, packaged in a hand-woven bamboo basket — a unique, memorable gift form.",
       },
     },
     servingLabel: "Serving",

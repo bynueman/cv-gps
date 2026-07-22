@@ -112,16 +112,9 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex max-w-3xl flex-col items-center gap-6 text-center">
-        <p
-          data-hero-copy
-          className="flex items-center gap-2 rounded-full border border-homeInk/15 bg-homeCard px-[18px] py-2 text-[13px] font-bold tracking-[0.02em] text-homeInk2"
-        >
-          <span className="h-2 w-2 rounded-full bg-homeTerracotta" />
-          {t.hero.kicker}
-        </p>
         <h1
           data-hero-copy
-          className="font-homeDisplay text-5xl leading-[1.04] text-homeInk sm:text-6xl lg:text-[74px]"
+          className="font-display text-5xl leading-[1.04] text-homeInk sm:text-6xl lg:text-[74px]"
         >
           {t.hero.title}
         </h1>
@@ -147,7 +140,7 @@ export function Hero() {
       {/* product cutouts */}
       <div
         data-hero-cutout
-        className="pointer-events-none absolute bottom-[6%] left-[4%] hidden w-56 drop-shadow-[0_30px_40px_oklch(27%_0.045_50_/_0.3)] sm:block lg:w-64"
+        className="pointer-events-none absolute bottom-[2%] left-[4%] hidden w-56 drop-shadow-[0_30px_40px_oklch(27%_0.045_50_/_0.3)] sm:block lg:w-64"
       >
         <Image
           src={groupShots.kuicip}

@@ -10,7 +10,7 @@ export function LangSwitch({ tone = "light" }: { tone?: "light" | "dark" }) {
     <div
       role="group"
       aria-label="Language"
-      className={`flex items-center rounded-full border p-0.5 text-xs font-semibold ${
+      className={`inline-flex items-center rounded-full border p-0.5 text-xs font-semibold ${
         tone === "light" ? "border-espresso-900/20" : "border-cream-100/25"
       }`}
     >

@@ -19,6 +19,11 @@ export function NewsPreview() {
   const scope = useReveal<HTMLElement>([lang]);
   const [hero, ...rest] = featuredArticles;
 
+  // Nothing published yet (News & Activities is pending the admin
+  // panel) — skip the section entirely rather than showing an empty
+  // grid with a dangling "see all" link.
+  if (!hero) return null;
+
   return (
     <section ref={scope} className="bg-homePanel px-6 py-32 sm:px-14 lg:py-36">
       <div className="mx-auto max-w-6xl">
@@ -27,7 +32,7 @@ export function NewsPreview() {
             <p data-reveal className="text-[13px] font-extrabold uppercase tracking-[0.08em] text-homeTerracotta">
               {t.newsSection.kicker}
             </p>
-            <h2 data-reveal className="mt-3 font-homeDisplay text-4xl text-homeInk sm:text-[46px]">
+            <h2 data-reveal className="mt-3 font-display text-4xl text-homeInk sm:text-[46px]">
               {t.newsSection.title}
             </h2>
           </div>
@@ -58,7 +63,7 @@ export function NewsPreview() {
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.04em] text-homeTerracotta">
                   {hero.category[lang]} · {formatDate(hero.date, lang)}
                 </p>
-                <p className="font-homeDisplay text-xl leading-snug text-homeInk">{hero.title[lang]}</p>
+                <p className="font-display text-xl leading-snug text-homeInk">{hero.title[lang]}</p>
               </div>
             </Link>
           ) : null}
@@ -86,7 +91,7 @@ export function NewsPreview() {
                   <p className="text-[11px] font-extrabold uppercase tracking-[0.04em] text-homeTerracotta">
                     {a.category[lang]} · {formatDate(a.date, lang)}
                   </p>
-                  <p className="font-homeDisplay text-base leading-snug text-homeInk">{a.title[lang]}</p>
+                  <p className="font-display text-base leading-snug text-homeInk">{a.title[lang]}</p>
                 </div>
               </Link>
             ))}

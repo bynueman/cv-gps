@@ -31,7 +31,7 @@ export type Bilingual = { id: string; en: string };
 export type BrandKey = "kuicip" | "putri-teko";
 export type TekoGroup = "rtd" | "brew";
 /** Real Putri Teko packaging forms, mirroring the photo set */
-export type TekoPackaging = "botol" | "kotak" | "toples" | "kemasan";
+export type TekoPackaging = "botol" | "kotak" | "toples" | "kemasan" | "besek";
 
 /* ------------------------------------------------------------------ */
 /* Brand assets — real files in /public/images                         */
@@ -47,8 +47,8 @@ export const logos = {
 
 /** Transparent multi-product cutouts for layered hero/panel scenes */
 export const groupShots = {
-  kuicip: "/images/kuicip-nobg.webp", // 3-pouch fan (Seaweed · Original · Balado)
-  "putri-teko": "/images/putriteko-nobg.webp", // 3 RTD bottles + fresh spices
+  kuicip: "/images/kuicip-nobg.webp", // 3-pouch fan (Seaweed · Original · Truffle)
+  "putri-teko": "/images/putriteko-nobg.webp", // 5 kotak sachet boxes (Susu Jahe, Jahe Cokelat, Jahe Serai, Jahe Merah, Wedang Uwuh)
 } as const;
 
 /* ------------------------------------------------------------------ */
@@ -504,6 +504,35 @@ export const putriTekoProducts: Product[] = [
     image: "/images/putri-teko/kotak-jaheserai.webp",
   },
   {
+    slug: "susu-jahe",
+    brand: "putri-teko",
+    group: "brew",
+    packaging: "kotak",
+    name: { id: "Susu Jahe", en: "Ginger Milk" },
+    short: {
+      id: "Susu creamy bertemu hangatnya jahe — penutup hari yang menenangkan.",
+      en: "Creamy milk meets ginger's warmth — a soothing way to end the day.",
+    },
+    personality: { id: "Lembut & menenangkan", en: "Gentle & soothing" },
+    serving: tekoKotakServing,
+    description: {
+      id: "Perpaduan susu yang lembut dan jahe yang menghangatkan — resep sederhana yang biasa jadi penutup hari di rumah-rumah Jawa. Sachet praktis dalam kotak batik khas Putri Teko, tinggal diseduh sebelum tidur.",
+      en: "Gentle milk meets warming ginger — a simple recipe that often closes the day in Javanese homes. Practical sachets in Putri Teko's signature batik box, ready to steep before bed.",
+    },
+    highlights: [
+      { id: "Susu creamy + jahe asli", en: "Creamy milk + real ginger" },
+      { id: "Sachet sekali seduh", en: "Single-steep sachets" },
+      { id: "Kotak batik khas", en: "Signature batik box" },
+    ],
+    notes: [
+      { id: "Seduh dengan air panas 200 ml", en: "Steep in 200 ml hot water" },
+      { id: "Nikmat diminum hangat sebelum tidur", en: "Best enjoyed warm before bed" },
+    ],
+    color: "#8A6240",
+    colorDark: "#4A3018",
+    image: "/images/putri-teko/kotak-susujahe.webp",
+  },
+  {
     slug: "wedang-uwuh-kotak",
     brand: "putri-teko",
     group: "brew",
@@ -692,6 +721,40 @@ export const putriTekoProducts: Product[] = [
     colorDark: "#77590E",
     image: "/images/putri-teko/kemasan-ori.webp",
   },
+
+  /* ── Besek · Oleh-Oleh Khas ─────────────────────────────────────── */
+  {
+    slug: "wedang-uwuh-besek",
+    brand: "putri-teko",
+    group: "brew",
+    packaging: "besek",
+    name: { id: "Wedang Uwuh Besek", en: "Wedang Uwuh Gift Basket" },
+    short: {
+      id: "Wedang uwuh dalam besek anyaman — oleh-oleh yang unik dan berkesan.",
+      en: "Wedang Uwuh in a hand-woven bamboo basket — a unique, memorable souvenir.",
+    },
+    personality: { id: "Khas & berkesan", en: "Distinctive & memorable" },
+    serving: {
+      id: "Besek anyaman · oleh-oleh unik",
+      en: "Woven basket · a unique souvenir",
+    },
+    description: {
+      id: "Racikan wedang uwuh yang sama, dikemas dalam besek anyaman bambu — bentuk oleh-oleh yang jarang ditemui, cocok dibawa pulang sebagai buah tangan khas Yogyakarta.",
+      en: "The same Wedang Uwuh blend, packaged in a hand-woven bamboo basket — an uncommon gift form, perfect to bring home as a distinctly Yogyakarta souvenir.",
+    },
+    highlights: [
+      { id: "Besek anyaman bambu asli", en: "Genuine woven bamboo basket" },
+      { id: "Cocok untuk oleh-oleh", en: "Great as a souvenir or gift" },
+      { id: "Racikan wedang uwuh lengkap", en: "Complete Wedang Uwuh blend" },
+    ],
+    notes: [
+      { id: "Seduh 5–7 menit dengan air panas", en: "Steep 5–7 minutes in hot water" },
+      { id: "Besek bisa dipakai ulang", en: "Basket is reusable" },
+    ],
+    color: "#B8935A",
+    colorDark: "#6B4F2A",
+    image: "/images/putri-teko/besek-wedanguwuh.webp",
+  },
 ];
 
 export const allProducts: Product[] = [...kuicipProducts, ...putriTekoProducts];
@@ -716,14 +779,15 @@ export const featuredTekoRtd = putriTekoProducts.filter((p) => p.featured && p.g
 export const featuredTekoBrew = putriTekoProducts.filter((p) => p.featured && p.group === "brew");
 
 /** Putri Teko catalog grouped by real packaging form, in display order */
-export const tekoPackagingOrder: TekoPackaging[] = ["botol", "kotak", "toples", "kemasan"];
+export const tekoPackagingOrder: TekoPackaging[] = ["botol", "kotak", "toples", "kemasan", "besek"];
 export function tekoByPackaging(packaging: TekoPackaging): Product[] {
   return putriTekoProducts.filter((p) => p.packaging === packaging);
 }
 
 /* ------------------------------------------------------------------ */
-/* News & Activities — static mock data, shaped for a future CMS swap  */
-/* All article stories are EDITABLE PLACEHOLDERS.                      */
+/* News & Activities — empty until the admin panel/CMS is wired up.    */
+/* Real content: CV Gama Putra Santosa's own activities/announcements  */
+/* — export milestones, local and non-local events, product news.     */
 /* ------------------------------------------------------------------ */
 export type Article = {
   slug: string;
@@ -736,159 +800,10 @@ export type Article = {
   featured?: boolean;
 };
 
-export const articles: Article[] = [
-  {
-    slug: "kuicip-8-rasa",
-    date: "2026-06-18",
-    category: { id: "Produk", en: "Product" },
-    title: {
-      id: "Delapan rasa Kuicip: dari Original hingga Truffle",
-      en: "Eight Kuicip flavors: from Original to Truffle",
-    },
-    excerpt: {
-      id: "Bagaimana satu umbi lokal bisa membawa delapan kepribadian rasa yang berbeda dalam kemasan 70 gr.",
-      en: "How one local root carries eight distinct flavor personalities in a 70 gr pack.",
-    },
-    body: [
-      {
-        id: "Ketika Kuicip pertama kali dirancang, pertanyaannya sederhana: seberapa jauh singkong bisa dibawa? Jawabannya ternyata cukup jauh — dari gurih klasik Original sampai aroma truffle yang biasanya hanya ditemui di restoran fine dining.",
-        en: "When Kuicip was first designed, the question was simple: how far can cassava go? Quite far, it turns out — from the classic savory Original to truffle aroma usually reserved for fine-dining rooms.",
-      },
-      {
-        id: "Delapan varian yang kini tersedia bukan sekadar daftar rasa, melainkan spektrum karakter: ada yang ramai seperti Balado, ada yang tenang seperti Seaweed, dan ada yang berani seperti Spicy Mala.",
-        en: "The eight variants available today are less a flavor list than a spectrum of characters: loud like Balado, calm like Seaweed, bold like Spicy Mala.",
-      },
-      {
-        id: "Semua berangkat dari bahan yang sama — singkong lokal yang diiris tipis dan digoreng renyah — bukti bahwa inovasi tidak selalu berarti bahan impor.",
-        en: "All of them start from the same ingredient — local cassava, sliced thin and fried crisp — proof that innovation doesn't have to mean imported ingredients.",
-      },
-    ],
-    image: "/images/kuicip/kuicip-balado.webp",
-    featured: true,
-  },
-  {
-    slug: "wedang-uwuh-cerita",
-    date: "2026-05-27",
-    category: { id: "Edukasi", en: "Education" },
-    title: {
-      id: "Wedang Uwuh: rempah sederhana, kebanggaan Yogyakarta",
-      en: "Wedang Uwuh: a humble spice blend, Yogyakarta's pride",
-    },
-    excerpt: {
-      id: "Di balik nama sederhananya, tersimpan racikan rempah yang kaya cerita — dan kini hadir dalam kemasan Putri Teko.",
-      en: "Behind the humble name lies a spice blend rich with story — now part of the Putri Teko family.",
-    },
-    body: [
-      {
-        id: "Namanya diambil dari kata 'uwuh' dalam bahasa Jawa, yang berarti dedaunan gugur — menggambarkan tampilan rempah keringnya yang campur aduk: serutan kayu secang, daun cengkih, kayu manis, dan jahe.",
-        en: "The name comes from the Javanese word 'uwuh', meaning fallen leaves — a nod to how the dried spice mix looks: a jumble of secang wood shavings, clove leaves, cinnamon, and ginger.",
-      },
-      {
-        id: "Namun ketika diseduh air panas, racikan itu berubah menjadi minuman merah menyala dengan aroma hangat yang khas. Putri Teko menghadirkannya dalam beberapa bentuk: kotak sachet, toples racikan, hingga kemasan rempah praktis.",
-        en: "Yet steeped in hot water, that handful becomes a glowing red drink with a signature warm aroma. Putri Teko offers it in several forms: sachet boxes, jar blends, and practical spice packs.",
-      },
-    ],
-    image: "/images/putri-teko/kotak-wedanguwuh.webp",
-    featured: true,
-  },
-  {
-    slug: "singkong-sleman",
-    date: "2026-04-30",
-    category: { id: "Kegiatan", en: "Activity" },
-    title: {
-      id: "Dari kebun Sleman ke rak modern: perjalanan singkong kami",
-      en: "From Sleman fields to modern shelves: our cassava's journey",
-    },
-    excerpt: {
-      id: "Melihat lebih dekat bagaimana bahan baku lokal diproses menjadi camilan yang siap bersaing.",
-      en: "A closer look at how local raw ingredients become a snack ready to compete.",
-    },
-    body: [
-      {
-        id: "Setiap kemasan Kuicip berawal dari kebun-kebun singkong di sekitar Yogyakarta. Pemilihan umbi menjadi tahap paling menentukan: ukuran, umur panen, dan kadar air semuanya memengaruhi kerenyahan akhir.",
-        en: "Every Kuicip pack begins in the cassava fields around Yogyakarta. Root selection is the most decisive stage: size, harvest age, and moisture all shape the final crunch.",
-      },
-      {
-        id: "Dari sana, prosesnya bergerak cepat — dikupas, diiris tipis, digoreng, dibumbui, dan dikemas dalam ziplock 70 gr — menjaga kesegaran dari dapur produksi hingga tangan konsumen.",
-        en: "From there the process moves quickly — peeled, thin-sliced, fried, seasoned, and sealed in 70 gr ziplock packs — protecting freshness from our kitchen to the consumer's hands.",
-      },
-    ],
-    image: "/images/kuicip/kuicip-ori.webp",
-    featured: true,
-  },
-  {
-    slug: "kemasan-70gr",
-    date: "2026-03-19",
-    category: { id: "Produk", en: "Product" },
-    title: {
-      id: "Kenapa 70 gram? Cerita di balik ukuran kemasan Kuicip",
-      en: "Why 70 grams? The story behind Kuicip's pack size",
-    },
-    excerpt: {
-      id: "Ukuran yang pas untuk sekali duduk, dengan ziplock untuk yang (katanya) mau menyisakan.",
-      en: "Just right for one sitting — with a ziplock for those who (allegedly) plan to save some.",
-    },
-    body: [
-      {
-        id: "Ukuran kemasan bukan keputusan sepele. 70 gram dipilih sebagai titik tengah: cukup untuk dinikmati sendiri, pas untuk dibagi, dan ringan dibawa bepergian.",
-        en: "Pack size is not a trivial decision. 70 grams was chosen as the middle point: enough to enjoy alone, right for sharing, light enough to travel.",
-      },
-      {
-        id: "Ziplock di bagian atas melengkapi cerita — menjaga kerenyahan bila camilan memang harus disimpan, meski pada praktiknya kemasan lebih sering habis sebelum ditutup kembali.",
-        en: "The ziplock completes the story — keeping things crisp if the snack must be stored, though in practice the pack usually empties before it's ever resealed.",
-      },
-    ],
-    image: "/images/kuicip/kuicip-truffle.webp",
-  },
-  {
-    slug: "pasar-lokal",
-    date: "2026-02-21",
-    category: { id: "Kegiatan", en: "Activity" },
-    title: {
-      id: "Menyapa pasar: Kuicip dan Putri Teko di bazar UMKM Yogyakarta",
-      en: "Meeting the market: Kuicip and Putri Teko at a Yogyakarta SME bazaar",
-    },
-    excerpt: {
-      id: "Catatan dari lapangan — mendengar langsung tanggapan konsumen atas dua keluarga produk kami.",
-      en: "Field notes — hearing first-hand how consumers respond to our two product families.",
-    },
-    body: [
-      {
-        id: "Tidak ada riset pasar yang lebih jujur daripada meja bazar. Di sana, kemasan harus menarik dalam dua detik, dan rasa harus menjawab dalam satu gigitan.",
-        en: "No market research is more honest than a bazaar table. There, packaging has two seconds to attract, and flavor has one bite to deliver.",
-      },
-      {
-        id: "Dua pelajaran pulang bersama kami: varian pedas selalu memancing antrean, dan cerita di balik wedang uwuh membuat orang berhenti lebih lama dari yang kami duga.",
-        en: "Two lessons came home with us: spicy variants always draw a queue, and the story behind Wedang Uwuh makes people linger longer than we expected.",
-      },
-    ],
-    image: "/images/putri-teko/toples-wedanguwuh.webp",
-  },
-  {
-    slug: "kolaborasi-terbuka",
-    date: "2026-01-15",
-    category: { id: "Bisnis", en: "Business" },
-    title: {
-      id: "Terbuka untuk kolaborasi: distribusi, ritel, dan eksplorasi ekspor",
-      en: "Open for collaboration: distribution, retail, and export exploration",
-    },
-    excerpt: {
-      id: "Portofolio produk kami siap untuk dieksplorasi mitra — mari mulai percakapannya.",
-      en: "Our product portfolio is ready for partners to explore — let's start the conversation.",
-    },
-    body: [
-      {
-        id: "Seiring bertumbuhnya dua keluarga produk kami, CV Gama Putra Santosa membuka ruang kolaborasi yang lebih luas: distribusi regional, penempatan ritel, hingga diskusi eksplorasi pasar ekspor.",
-        en: "As our two product families grow, CV Gama Putra Santosa is opening wider doors for collaboration: regional distribution, retail placement, and export market exploration discussions.",
-      },
-      {
-        id: "Kami percaya kemitraan yang baik dimulai dari percakapan yang jujur tentang produk, kemasan, dan pasar. Halaman Ekspor kami merangkum apa yang bisa dieksplorasi bersama.",
-        en: "We believe good partnerships start with honest conversations about product, packaging, and market. Our Export page summarizes what we can explore together.",
-      },
-    ],
-    image: "/images/putri-teko/botol-gulaasam.webp",
-  },
-];
+export const articles: Article[] = [];
+// ↑ Emptied intentionally — News & Activities will be populated via an
+// admin panel/CMS. Keep the Article type and helpers below as the
+// contract that panel writes against.
 
 export const featuredArticles = articles.filter((a) => a.featured).slice(0, 3);
 
@@ -897,15 +812,18 @@ export function getArticle(slug: string): Article | undefined {
 }
 
 /* ------------------------------------------------------------------ */
-/* Company info — EDITABLE PLACEHOLDERS pending final business data    */
+/* Company info — real business details                                */
 /* ------------------------------------------------------------------ */
 export const company = {
   name: "CV Gama Putra Santosa",
   shortName: "Gama Putra Santosa",
   location: { id: "Sleman, DI Yogyakarta, Indonesia", en: "Sleman, Yogyakarta, Indonesia" },
-  // ↓ placeholders — replace with final business info
-  address: "Jl. Contoh Alamat No. 00, Sleman, DI Yogyakarta 55500",
-  email: "halo@gamaputrasantosa.co.id",
-  whatsapp: "+62 812-0000-0000",
-  whatsappHref: "https://wa.me/628120000000",
+  address: "Jl. Gedongan Min Klangon, Sumberagung, Moyudan, Sleman, DI Yogyakarta, Indonesia",
+  email: "contact@gpsfood.id",
+  emailAlt: "gpsmanajemen@gmail.com",
+  whatsapp: "+62 812-4926-9546",
+  whatsappHref: "https://wa.me/6281249269546",
+  hours: { id: "Senin–Sabtu, 08.00–16.00", en: "Monday–Saturday, 08.00–16.00" },
+  mapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4401.129263842572!2d110.25497837550057!3d-7.7584989769411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af77d5d4060a3%3A0xa56138636b069bc5!2sKuicip%20Cassa%20Lite!5e1!3m2!1sen!2sid!4v1784696348421!5m2!1sen!2sid",
 };

@@ -17,14 +17,15 @@ replacing an asset.
 | `logo/gps.webp` | corporate mark (red flower + blue "GPS"), transparent | Header, Footer (`logos.gps`) |
 | `logo/kuicip.webp` | Kuicip cartoon wordmark, transparent | Hero trust line, ProductsOverview, ProductFamilies |
 | `logo/putriteko.webp` | Putri Teko art-nouveau emblem, transparent (portrait) | Hero trust line, ProductsOverview, ProductFamilies |
-| `kuicip-nobg.webp` | transparent 3-pouch fan (Seaweed · Original · Balado) | Hero + ProductFamilies layered scenes (`groupShots.kuicip`) |
-| `putriteko-nobg.webp` | transparent 3-bottle group + spices | Hero + ProductFamilies layered scenes (`groupShots["putri-teko"]`) |
+| `kuicip-nobg.webp` | transparent 3-pouch fan (Seaweed · Original · Truffle) | Hero + ProductFamilies layered scenes (`groupShots.kuicip`) |
+| `putriteko-nobg.webp` | transparent group of 5 kotak sachet boxes (Susu Jahe, Jahe Cokelat, Jahe Serai, Jahe Merah, Wedang Uwuh) | Hero + ProductFamilies layered scenes (`groupShots["putri-teko"]`) |
 | `kuicip/kuicip-*.webp` | 8 studio packshots (ori, balado, barbeque, chililime, rendang, seaweed, spicymala, truffle), opaque 3:4, warm cream backdrop | `kuicipProducts[*].image` |
 | `putri-teko/boto*-*.webp` | 3 RTD bottles: `boto-beraskencur` (note the filename typo — keep in sync with content.ts), `botol-gulaasam`, `botol-kuniasam` | botol SKUs |
-| `putri-teko/kotak-*.webp` | 4 batik sachet boxes: jahecoklat, jahemerah, jaheserai, wedanguwuh | kotak SKUs |
+| `putri-teko/kotak-*.webp` | 5 batik sachet boxes: jahecoklat, jahemerah, jaheserai, susujahe, wedanguwuh | kotak SKUs |
 | `putri-teko/toples-*.webp` | 4 jars: gulabatukristal, jahemerah, jaheserai, wedanguwuh | toples SKUs |
 | `putri-teko/kemasan-ori.webp` | 1 practical clear spice pack | kemasan SKU |
-| `news/` | (empty) — articles currently reuse product shots; drop real editorial photos here and update `articles[*].image` | `articles[*].image` |
+| `putri-teko/besek-wedanguwuh.webp` | 1 hand-woven bamboo gift basket | besek SKU |
+| `news/` | (empty) — News & Activities is empty pending an admin panel; drop real editorial photos here once articles exist | `articles[*].image` |
 
 ## Guidelines
 
@@ -38,4 +39,4 @@ replacing an asset.
   never renders larger than ~800 px), then reference from
   `content.ts`.
 - Card aspect ratios per packaging live in `ProductPackshot.tsx`:
-  pouch/botol/kotak 3:4 · toples ≈ square · kemasan 4:4.6.
+  pouch/botol/kotak/besek 3:4 · toples ≈ square · kemasan 4:4.6.

@@ -8,9 +8,9 @@ import { ProductCard } from "@/components/ProductCard";
 
 /**
  * Putri Teko category page, organized by the real packaging forms in
- * the photo set: a light panel for RTD bottles, then a dark brew panel
- * with three sub-groups — sachet boxes, jar blends, and the practical
- * spice pack.
+ * the photo set: a dark brew panel first (kotak sachet, then toples
+ * jars, then the practical kemasan pack), with the light RTD bottle
+ * panel last.
  */
 export function TekoCatalog() {
   const { lang, t } = useLang();
@@ -20,6 +20,7 @@ export function TekoCatalog() {
   const kotak = tekoByPackaging("kotak");
   const toples = tekoByPackaging("toples");
   const kemasan = tekoByPackaging("kemasan");
+  const besek = tekoByPackaging("besek");
 
   return (
     <>
@@ -33,24 +34,7 @@ export function TekoCatalog() {
 
       <section ref={scope} className="pb-20 lg:pb-28">
         <div className="container-page space-y-16">
-          {/* Botol · ready to drink — light panel */}
-          <div className="rounded-3xl border border-espresso-900/10 bg-cream-50 p-7 sm:p-10">
-            <h2 data-reveal className="font-display text-2xl font-semibold">
-              {t.tekoPage.rtdTitle}
-            </h2>
-            <p data-reveal className="mt-2 max-w-xl text-sm leading-relaxed text-espresso-600">
-              {t.tekoPage.rtdBody}
-            </p>
-            <ul className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {botol.map((p) => (
-                <li key={p.slug} data-reveal>
-                  <ProductCard product={p} showServing />
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Brew at home — dark panel with packaging sub-groups */}
+          {/* Brew at home — dark panel with packaging sub-groups (kotak, toples, kemasan) */}
           <div className="rounded-3xl bg-espresso-900 p-7 text-cream-100 sm:p-10">
             <h2 data-reveal className="font-display text-2xl font-semibold">
               {t.tekoPage.brewTitle}
@@ -109,6 +93,40 @@ export function TekoCatalog() {
                 ))}
               </ul>
             </div>
+
+            {/* Besek · unique souvenir packaging */}
+            <div className="mt-10">
+              <h3 data-reveal className="font-display text-lg font-semibold text-turmeric">
+                {t.tekoPage.packs.besek.title}
+              </h3>
+              <p data-reveal className="mt-1 text-sm text-cream-200/70">
+                {t.tekoPage.packs.besek.body}
+              </p>
+              <ul className="mt-5 grid gap-5 sm:grid-cols-2">
+                {besek.map((p) => (
+                  <li key={p.slug} data-reveal>
+                    <ProductCard product={p} size="wide" showServing />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Botol · ready to drink — light panel, now last */}
+          <div className="rounded-3xl border border-espresso-900/10 bg-cream-50 p-7 sm:p-10">
+            <h2 data-reveal className="font-display text-2xl font-semibold">
+              {t.tekoPage.rtdTitle}
+            </h2>
+            <p data-reveal className="mt-2 max-w-xl text-sm leading-relaxed text-espresso-600">
+              {t.tekoPage.rtdBody}
+            </p>
+            <ul className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {botol.map((p) => (
+                <li key={p.slug} data-reveal>
+                  <ProductCard product={p} showServing />
+                </li>
+              ))}
+            </ul>
           </div>
 
           <p data-reveal className="text-xs italic text-espresso-500">

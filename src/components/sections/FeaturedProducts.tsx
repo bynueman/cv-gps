@@ -39,7 +39,7 @@ export function FeaturedProducts() {
             <p data-reveal className="text-[13px] font-extrabold uppercase tracking-[0.08em] text-homeGold">
               {t.featured.kicker}
             </p>
-            <h2 data-reveal className="mt-3 max-w-xl font-homeDisplay text-4xl text-homeBg sm:text-[46px]">
+            <h2 data-reveal className="mt-3 max-w-xl font-display text-4xl text-homeBg sm:text-[46px]">
               {t.featured.title}
             </h2>
           </div>
@@ -72,7 +72,7 @@ export function FeaturedProducts() {
                 <p className={`mb-1 text-[11px] font-extrabold uppercase tracking-[0.04em] ${accentFor(HERO.brand)}`}>
                   {brands["putri-teko"].name} · {tagFor(HERO.brand, hero.packaging)}
                 </p>
-                <p className="font-homeDisplay text-2xl text-homeInk">{hero.name[lang]}</p>
+                <p className="font-display text-2xl text-homeInk">{hero.name[lang]}</p>
                 <p className="mt-1 text-sm text-homeInk2">{hero.short[lang]}</p>
               </div>
             </Link>
@@ -105,7 +105,7 @@ export function FeaturedProducts() {
                     <p className={`mb-1 text-[11px] font-extrabold uppercase tracking-[0.04em] ${accentFor(brand)}`}>
                       {tagFor(brand, product.packaging)}
                     </p>
-                    <p className="font-homeDisplay text-lg text-homeInk">{product.name[lang]}</p>
+                    <p className="font-display text-lg text-homeInk">{product.name[lang]}</p>
                   </div>
                 </Link>
               );

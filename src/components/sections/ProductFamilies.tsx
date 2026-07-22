@@ -39,7 +39,7 @@ export function ProductFamilies() {
           aria-hidden="true"
           className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-homeGold/50"
         />
-        <p data-reveal className="relative font-homeDisplay text-5xl text-homeTerracotta">
+        <p data-reveal className="relative font-display text-5xl text-homeTerracotta">
           {brands.kuicip.name}
         </p>
         <p data-reveal className="relative max-w-sm text-base text-homeInk2">
@@ -82,7 +82,7 @@ export function ProductFamilies() {
           aria-hidden="true"
           className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-homeSage/30"
         />
-        <p data-reveal className="relative font-homeDisplay text-5xl text-homeSage">
+        <p data-reveal className="relative font-display text-5xl text-homeSage">
           {brands["putri-teko"].name}
         </p>
         <p data-reveal className="relative max-w-sm text-base text-homeInk2">

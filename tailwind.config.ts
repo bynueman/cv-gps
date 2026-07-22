@@ -72,11 +72,11 @@ const config: Config = {
         homeTekoPanel: oklchColor("92% 0.03 100"),
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        // Homepage redesign only — see colors.home* above.
-        homeDisplay: ["var(--font-home-display)", "Georgia", "serif"],
-        homeSans: ["var(--font-home-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Arial Black", "sans-serif"],
+        // Literal "Comic Sans MS" first (real thing, when the OS has it),
+        // Comic Neue (loaded webfont) as the guaranteed fallback — Google
+        // Fonts doesn't host the actual licensed Comic Sans MS.
+        sans: ["Comic Sans MS", "var(--font-sans)", "cursive"],
       },
       maxWidth: {
         page: "76rem",

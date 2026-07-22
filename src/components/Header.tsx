@@ -45,22 +45,17 @@ export function Header() {
     >
       <div className="container-page flex h-16 items-center justify-between gap-6 sm:h-20">
         {/* Logo area */}
-        <Link href="/" className="flex items-center gap-2.5" aria-label={company.name}>
+        <Link href="/" className="flex items-center gap-3" aria-label={company.name}>
           <Image
             src={logos.gps}
             alt={`Logo ${company.name}`}
             width={128}
             height={72}
             priority
-            className="h-8 w-auto sm:h-9"
+            className="h-14 w-auto sm:h-16"
           />
-          <span className="hidden flex-col leading-tight sm:flex">
-            <span className="font-display text-base font-semibold tracking-tight">
-              Gama Putra Santosa
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-espresso-600">
-              Sleman · Yogyakarta
-            </span>
+          <span className="hidden font-sans text-base font-normal tracking-tight sm:inline">
+            CV Gama Putra Santosa
           </span>
         </Link>
 

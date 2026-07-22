@@ -32,7 +32,6 @@ inquiry instead of making claims.
   - **kemasan** (practical pack): Racikan Original
 
 **Editable placeholders** (marked in code, replace before launch):
-- Street address, email, WhatsApp (`company` in `src/lib/content.ts`).
 - All product blurbs/flavor personalities, serving notes, and articles
   (weights/portions only where visible on the photographed packaging).
 - No certifications, export destinations, volumes, or founding dates
@@ -47,7 +46,7 @@ inquiry instead of making claims.
 | `/products/kuicip` | `app/products/kuicip/page.tsx` | `pages/KuicipCatalog` |
 | `/products/kuicip/[slug]` | `…/[slug]/page.tsx` (SSG, 8 paths) | `pages/ProductDetail` |
 | `/products/putri-teko` | `app/products/putri-teko/page.tsx` | `pages/TekoCatalog` (grouped botol → kotak → toples → kemasan) |
-| `/products/putri-teko/[slug]` | `…/[slug]/page.tsx` (SSG, 12 paths) | `pages/ProductDetail` |
+| `/products/putri-teko/[slug]` | `…/[slug]/page.tsx` (SSG, 14 paths) | `pages/ProductDetail` |
 | `/export` | `app/export/page.tsx` | `pages/ExportPage` |
 | `/news` | `app/news/page.tsx` | `pages/NewsList` |
 | `/news/[slug]` | `app/news/[slug]/page.tsx` (SSG, 6 paths) | `pages/ArticleDetail` |
@@ -155,9 +154,10 @@ as-is; referenced verbatim in `content.ts`).
 
 ## Handoff checklist
 
-- [ ] Replace `company` placeholders (address, email, WhatsApp).
-- [x] Confirm the Putri Teko SKU list — now mirrors the 12 photographed
-      products (botol/kotak/toples/kemasan).
+- [x] Replace `company` placeholders (address, email, WhatsApp) with real
+      business info + a live Google Maps embed on `/contact`.
+- [x] Confirm the Putri Teko SKU list — now mirrors the 14 photographed
+      products (botol/kotak/toples/kemasan/besek).
 - [x] Drop real packshots into `public/images/**` and set paths.
 - [ ] Replace article images (currently reusing product shots) with
       real editorial photos in `public/images/news/`.

@@ -22,7 +22,7 @@ export function ContactCTA() {
           <p data-reveal className="text-[13px] font-extrabold uppercase tracking-[0.08em] text-homeGold">
             {t.homeContact.kicker}
           </p>
-          <h2 data-reveal className="mt-3 font-homeDisplay text-4xl text-homeBg sm:text-[46px]">
+          <h2 data-reveal className="mt-3 font-display text-4xl text-homeBg sm:text-[46px]">
             {t.homeContact.title}
           </h2>
         </div>
@@ -34,7 +34,7 @@ export function ContactCTA() {
               data-reveal
               className="flex flex-col gap-2 rounded-[22px] border border-homeBg/15 bg-homeBg/[0.06] p-[1.625rem] transition-colors hover:bg-homeBg/[0.12]"
             >
-              <p className="font-homeDisplay text-[19px] text-homeBg">{cw.title}</p>
+              <p className="font-display text-[19px] text-homeBg">{cw.title}</p>
               <p className="text-[13px] leading-relaxed text-homeBg/65">{cw.desc}</p>
               <a
                 href={`mailto:${company.email}`}

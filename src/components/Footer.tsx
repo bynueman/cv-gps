@@ -85,6 +85,11 @@ export function Footer() {
               </a>
             </li>
             <li>
+              <a href={`mailto:${company.emailAlt}`} className="hover:text-cream-100">
+                {company.emailAlt}
+              </a>
+            </li>
+            <li>
               <a href={company.whatsappHref} className="hover:text-cream-100">
                 {company.whatsapp}
               </a>
