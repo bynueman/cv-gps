@@ -12,6 +12,17 @@ Fully static output (36 prerendered pages).
 npm install
 npm run dev    # http://localhost:3000
 npm run build  # production build
+npm run start:vps # production start on VPS port 3007
+```
+
+For the VPS deployment used by this project, the live app listens on
+port `3007`, so the production start command must bind that port.
+After pulling updates, run:
+
+```bash
+npm install
+npm run build
+npm run start:vps
 ```
 
 ## Content sourcing: factual context vs placeholder

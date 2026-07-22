@@ -12,6 +12,7 @@ Bilingual (Indonesian/English) static marketing site for CV Gama Putra Santosa, 
 npm run dev    # dev server at http://localhost:3000
 npm run build  # production build (also the type-check gate — no separate test suite)
 npm run lint   # next lint
+npm run start:vps # production start on VPS port 3007
 ```
 
 There are no tests; `npm run build` is the verification step (it type-checks and prerenders all static paths).
