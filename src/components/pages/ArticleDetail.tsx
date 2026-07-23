@@ -4,18 +4,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
-import { articles, type Article } from "@/lib/content";
+import type { Article } from "@/lib/content";
 import { ArticleCard, formatDate } from "@/components/ArticleCard";
 
 /**
  * Article detail template: large title area, clean reading column,
  * related posts. Reusable for updates, product stories, activities.
  */
-export function ArticleDetail({ article }: { article: Article }) {
+export function ArticleDetail({
+  article,
+  relatedArticles,
+}: {
+  article: Article;
+  relatedArticles: Article[];
+}) {
   const { lang, t } = useLang();
   const scope = useReveal<HTMLElement>([lang, article.slug]);
 
-  const related = articles.filter((a) => a.slug !== article.slug).slice(0, 3);
+  const related = relatedArticles;
 
   return (
     <article ref={scope} className="pb-20 pt-28 sm:pt-36 lg:pb-28">
@@ -66,14 +72,25 @@ export function ArticleDetail({ article }: { article: Article }) {
           )}
         </div>
 
-        {/* Reading column */}
-        <div className="mx-auto mt-12 max-w-2xl space-y-6">
-          {article.body.map((paragraph, i) => (
-            <p key={i} data-reveal className="text-base leading-[1.85] text-espresso-700">
-              {paragraph[lang]}
-            </p>
-          ))}
-        </div>
+        {/* Reading column — rich-text HTML from the admin editor, sanitized server-side before storage */}
+        <div
+          data-reveal
+          className="prose-article mx-auto mt-12 max-w-2xl"
+          dangerouslySetInnerHTML={{ __html: article.body[0]?.[lang] ?? "" }}
+        />
+
+        {article.tags && article.tags.length > 0 ? (
+          <div className="mx-auto mt-8 flex max-w-2xl flex-wrap gap-2">
+            {article.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-espresso-900/5 px-3 py-1 text-xs font-semibold text-espresso-600"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        ) : null}
 
         {/* Related */}
         <div className="mt-20 border-t border-espresso-900/10 pt-12">

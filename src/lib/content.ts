@@ -795,9 +795,13 @@ export type Article = {
   category: Bilingual;
   title: Bilingual;
   excerpt: Bilingual;
-  body: Bilingual[]; // paragraphs
+  // DB-backed articles (src/lib/articles.ts) store rich-text HTML from
+  // the admin editor and hold exactly one element here (the sanitized
+  // HTML blob per language) rather than one element per paragraph.
+  body: Bilingual[];
   image: string | null;
   featured?: boolean;
+  tags?: string[];
 };
 
 export const articles: Article[] = [];

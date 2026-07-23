@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
-import { featuredArticles } from "@/lib/content";
+import type { Article } from "@/lib/content";
 import { formatDate } from "@/components/ArticleCard";
 
 /**
@@ -14,10 +14,10 @@ import { formatDate } from "@/components/ArticleCard";
  * photos) instead of the mockup's literal pixel heights, which
  * cropped portrait photos down to an unrecognizable sliver.
  */
-export function NewsPreview() {
+export function NewsPreview({ articles }: { articles: Article[] }) {
   const { lang, t } = useLang();
   const scope = useReveal<HTMLElement>([lang]);
-  const [hero, ...rest] = featuredArticles;
+  const [hero, ...rest] = articles;
 
   // Nothing published yet (News & Activities is pending the admin
   // panel) — skip the section entirely rather than showing an empty

@@ -54,3 +54,37 @@ button:focus-visible {
     @apply btn bg-espresso-900 text-cream-100 hover:bg-espresso-800 focus-visible:ring-offset-espresso-900;
   }
 }
+
+/* Rich-text article body — both the live TipTap editor in /admin and
+   the public article detail page render through this class, so the
+   admin's WYSIWYG output matches what visitors actually see. */
+.prose-article {
+  @apply text-base leading-[1.85] text-espresso-700;
+}
+.prose-article > * + * {
+  @apply mt-5;
+}
+.prose-article h2 {
+  @apply font-display text-2xl font-semibold leading-snug text-espresso-950;
+}
+.prose-article h3 {
+  @apply font-display text-xl font-semibold leading-snug text-espresso-950;
+}
+.prose-article a {
+  @apply font-semibold text-gold-700 underline decoration-gold-400 underline-offset-2 hover:text-gold-600;
+}
+.prose-article strong {
+  @apply font-semibold text-espresso-900;
+}
+.prose-article ul {
+  @apply list-disc space-y-2 pl-6;
+}
+.prose-article ol {
+  @apply list-decimal space-y-2 pl-6;
+}
+.prose-article blockquote {
+  @apply border-l-4 border-gold-400 pl-5 italic text-espresso-600;
+}
+.prose-article img {
+  @apply rounded-2xl;
+}

@@ -1,0 +1,39 @@
+// Admin panel data layer for "Berita & Kegiatan". SQLite — single VPS,
+// single app, zero ops. File lives at ./data/gps.db (gitignored).
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  date       DateTime
+  categoryId String // category text, Indonesian
+  categoryEn String
+  titleId    String
+  titleEn    String
+  excerptId  String
+  excerptEn  String
+  bodyId     String // sanitized rich-text HTML from the admin editor
+  bodyEn     String
+  tagsId     String   @default("") // comma-separated
+  tagsEn     String   @default("")
+  image      String? // /uploads/news/xxx-content.webp
+  imageThumb String? // /uploads/news/xxx-thumb.webp
+  imageOg    String? // /uploads/news/xxx-og.webp (1200x630)
+  featured   Boolean  @default(false)
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model AdminUser {
+  id           String @id @default(cuid())
+  email        String @unique
+  passwordHash String
+}

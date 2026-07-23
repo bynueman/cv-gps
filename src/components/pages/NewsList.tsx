@@ -2,7 +2,7 @@
 
 import { useLang } from "@/lib/i18n";
 import { useReveal } from "@/hooks/useReveal";
-import { articles } from "@/lib/content";
+import type { Article } from "@/lib/content";
 import { PageHeader } from "@/components/PageHeader";
 import { ArticleCard } from "@/components/ArticleCard";
 
@@ -10,7 +10,7 @@ import { ArticleCard } from "@/components/ArticleCard";
  * News & Activities listing: magazine layout with one leading article
  * and an editorial grid. Calmer motion language than product pages.
  */
-export function NewsList() {
+export function NewsList({ articles }: { articles: Article[] }) {
   const { lang, t } = useLang();
   const scope = useReveal<HTMLElement>([lang]);
   const [lead, ...rest] = articles;

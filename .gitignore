@@ -4,6 +4,15 @@ out/
 build/
 next-env.d.ts
 *.tsbuildinfo
+.env
 .env*.local
+!.env.example
 .DS_Store
 %LOCALAPPDATA%/
+
+# Admin panel: SQLite DB + user-uploaded images — never commit real data
+/data/
+/public/uploads/*
+!/public/uploads/news/
+/public/uploads/news/*
+!/public/uploads/news/.gitkeep
